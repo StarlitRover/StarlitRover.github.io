@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starlit Rover || 动态规划</title>
+    <title>Starlit Rover || 「Section 2」建立数据模型</title>
     <meta name="author" content="Jammy Zeta">
     <meta name="description" content="Just stroll in the starlit firmament~ ">
     <meta name="keywords" content=" ">
@@ -250,208 +250,109 @@ mjx-container[display="true"] + br {
 
                 <div id="main">
                      
-<div class="categories-tags">
-    
-    <div class="all-s">
-        
-        
-        <span>
-            <a href="/tags/C＋＋/" style=background:#6484be>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                C＋＋
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/动态规划/" style=background:#24292e>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                动态规划
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/map/" style=background:#607d8b>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                map
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/set/" style=background:#006674>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                set
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/binary-search/" style=background:#016a99>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                binary search
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/sort/" style=background:#016a99>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                sort
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/vector/" style=background:#607d8b>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                vector
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/OpenGL/" style=background:#6484be>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                OpenGL
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/CLion/" style=background:#607d8b>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                CLion
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/blog/" style=background:#016a99>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                blog
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/并查集/" style=background:#607d8b>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                并查集
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/pair/" style=background:#006674>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                pair
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/notes/" style=background:#006674>
-                <span class="icon">
-                    <a-icon type="tag" theme="filled" />
-                </span>
-                notes
-            </a>
-        </span>
-        
-        
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>「Section 2」建立数据模型 </h1>
     </div>
-    <div id="archives">
-        
-        <a-timeline>
-            <a-timeline-item color="#a5c2f5">
-                <a-card hoverable>
-                    <div class="item-time">2022/2/27</div>
-                    <a href="/2022/02/27/1007-Maximum-Subsequence-Sum/">
-                        <h3>「1007」 Maximum Subsequence Sum</h3>
-                    </a>
-                    <div class="info">
-                        
-                        <span class="category">
-                            <a href="/categories/PAT（Advanced-Level）Practice">
-                                <span class="icon">
-                                    <a-icon type="book" theme="filled" />
-                                </span>
-                                PAT（Advanced Level）Practice
-                            </a>
-                        </span>
-                        
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/6
+        </span>
 
-                        
-                        <span class="tags">
-                            <span class="icon">
-                                <a-icon type="tags" theme="filled" />
-                            </span>
-                            
-                            <span class="tag">
-                                
-                                <a href="/tags/C＋＋" style=color:#006674>
-                                    C＋＋
-                                </a>
-                            </span>
-                            
-                            <span class="tag">
-                                
-                                <a href="/tags/动态规划" style=color:#006674>
-                                    动态规划
-                                </a>
-                            </span>
-                            
-                        </span>
-                        
-                    </div>
-                </a-card>
-            </a-timeline-item>
-        </a-timeline>
+        
+        <span class="category">
+            <a href="/categories/数据库原理">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                数据库原理
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/notes" style=color:#016a99>
+                    notes
+                </a>
+            </span>
+            
+        </span>
         
     </div>
-    <script>
-        new Vue({
-            el: '#archives'
-        })
-    </script>
+
+    <div class="content" v-pre>
+        <ol>
+<li><p>概念模型的基本概念</p>
+<ul>
+<li><p><strong>实体</strong>：客观事物的映射，可以是实际存在的对象，也可以是某种概念</p>
+</li>
+<li><p><strong>属性</strong>：实体的特征，描述实体，使实体更为具体</p>
+</li>
+<li><p><strong>域</strong>：一个属性的取值范围</p>
+</li>
+<li><p><strong>实体集</strong>：所有具有相同属性的实体所构成的集合</p>
+<span id="more"></span>
+</li>
+<li><p><strong>实体型</strong>：实体名称以及所有属性名构成的集合</p>
+</li>
+<li><p><strong>码</strong>：实体集中可以根据一个属性或多个属性唯一确定每一个实体，那么称该属性或属性组为码</p>
+</li>
+</ul>
+</li>
+<li><p>主要的<strong>数据模型</strong></p>
+<ul>
+<li>层次模型</li>
+<li>网状模型</li>
+<li>关系模型</li>
+<li>面向对象模型</li>
+</ul>
+</li>
+<li><p><strong>E-R图的基本表示方法</strong></p>
+<ul>
+<li>矩形表示实体集，椭圆表示实体集的属性，两者之间用无向边相连</li>
+<li>实体的码（**e.g.**学号，身份证号）用下划线标出</li>
+<li>菱形表示实体集之间的关系，菱形中写上关系名，与实体集的连线上则写上两个实体集之间的数量对应关系（联系的阶）<ul>
+<li>一对一：1:1</li>
+<li>一对多：1:n</li>
+<li>多对多：m:n</li>
+</ul>
+</li>
+</ul>
+<img src="/images/数据库原理/2.png" style="zoom:45%;">
+</li>
+<li><p><strong>多元联系</strong>：两个以上实体集之间的联系</p>
+<p><img src="/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/3.png"></p>
+</li>
+<li><p><strong>联系的属性</strong>：有时一个属性从逻辑上不能单独分配给一个实体时，可以将属性分配给联系</p>
+<img src="/images/数据库原理/4.png" style="zoom:80%;">
+
+<p>上图中一名学生有多门选课的成绩，而一门课程则有多个学生的成绩，因此两者都不能直接拥有成绩属性，而是将成绩属性分配给选课关系更为合适，一个选课一个成绩。</p>
+</li>
+<li><p><strong>强实体集</strong>：有码的实体集；<strong>弱实体集</strong>：无码的实体集，依赖于其余一个或多个实体集的码。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
 </div>
                      
 <footer id="footer">
@@ -515,6 +416,22 @@ mjx-container[display="true"] + br {
             }
         }
     })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/js/md5.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: 'f1d02ea5b1fd5309c4b9',
+        clientSecret: 'fea96546fcd9dc7495659e8c9d6c20cd75fa7dbe',
+        repo: 'Blog-Comments',      // The repository of store comments,
+        owner: 'StarlitRover',
+        admin: ['StarlitRover'],
+        language: 'zh-CN',
+        id: md5(location.pathname),     // (Ensure uniqueness and length less than 50)
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
 </script>
 
 </body>
