@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/OpenGL" style=color:#016a99>
+                <a href="/tags/OpenGL" style=color:#006674>
                     OpenGL
                 </a>
             </span>
@@ -418,11 +418,11 @@ int main(void)
         glClearColor(0.2, 0.1, 0.2, 1);
         glClear(GL_COLOR_BUFFER_BIT);
                 
-          //绘制t0时每次迭代的控制点连线
+        //绘制t0时每次迭代的控制点连线
         glLineWidth(5);
         for (int i = 0; i &lt; n; ++i)
         {
-              //使每次迭代的控制点连线颜色不同
+            //使每次迭代的控制点连线颜色不同
             glColor3f(1.0 * (n - 1 - i) / (n - 1), 1.0 * i / (n - 1), 0);
             glBegin(GL_LINE_STRIP);
             for (auto &amp;p: control_points[i])
@@ -436,7 +436,7 @@ int main(void)
             glVertex2f(p.x, p.y);
         glEnd();
                 
-          //绘制出贝塞尔曲线上t0所对应的点
+        //绘制出贝塞尔曲线上t0所对应的点
         glColor3f(0, 0.7, 0.7);
         glPointSize(20);
         glEnable(GL_POINT_SMOOTH);
