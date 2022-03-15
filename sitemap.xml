@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://starlitrover.xyz/2022/03/15/1015-Reversible-Primes/</loc>
+    <loc>https://starlitrover.xyz/2022/03/12/1013-Battle-Over-Cities/</loc>
     
     <lastmod>2022-03-15</lastmod>
     
@@ -12,6 +12,15 @@
   
   <url>
     <loc>https://starlitrover.xyz/2022/03/15/1014-Waiting-in-Line/</loc>
+    
+    <lastmod>2022-03-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://starlitrover.xyz/2022/03/15/1015-Reversible-Primes/</loc>
     
     <lastmod>2022-03-15</lastmod>
     
@@ -30,15 +39,6 @@
   
   <url>
     <loc>https://starlitrover.xyz/2022/03/04/%E8%A1%A5%E7%A0%81%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95/</loc>
-    
-    <lastmod>2022-03-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://starlitrover.xyz/2022/03/12/1013-Battle-Over-Cities/</loc>
     
     <lastmod>2022-03-14</lastmod>
     
@@ -304,13 +304,6 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/binary-search/</loc>
-    <lastmod>2022-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://starlitrover.xyz/tags/map/</loc>
     <lastmod>2022-03-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -318,7 +311,7 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/sort/</loc>
+    <loc>https://starlitrover.xyz/tags/binary-search/</loc>
     <lastmod>2022-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -339,7 +332,7 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/vector/</loc>
+    <loc>https://starlitrover.xyz/tags/sort/</loc>
     <lastmod>2022-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -347,6 +340,20 @@
   
   <url>
     <loc>https://starlitrover.xyz/tags/queue/</loc>
+    <lastmod>2022-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://starlitrover.xyz/tags/prime/</loc>
+    <lastmod>2022-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://starlitrover.xyz/tags/vector/</loc>
     <lastmod>2022-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
