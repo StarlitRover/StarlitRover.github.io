@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlit Rover || 「Section 1」数据库系统概论</title>
+    <meta name="author" content="Jammy Zeta">
+    <meta name="description" content="Just stroll in the starlit firmament~ ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/rover.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/Pikachu.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Starlit Rover</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Starlit Rover</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>「Section 1」数据库系统概论 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/6
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/数据库原理">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                数据库原理
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/notes" style=color:#607d8b>
+                    notes
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <ol>
+<li><p><strong>数据库</strong>（DataBase）：存储在计算机系统内的有结构的数据结构。不仅包含数据，同时还有数据的含义、数据结构、约束的完整性定义</p>
+</li>
+<li><p><strong>文件系统的缺点</strong></p>
+<ul>
+<li><p>数据冗余较大：数据文件无法共享</p>
+</li>
+<li><p>数据和程序缺乏独立性：改变数据的逻辑结构就必须修改程序</p>
+<span id="more"></span></li>
+</ul>
+</li>
+<li><p><strong>数据库管理系统</strong>（Database Management System）：DBMS是位于用户与操作系统之间的一层软件，它是一个大型的复杂的系统软件。领先的著名数据库管理系统DBMS有PostgreSQL、 IBM DB2、Oracle、 Microsoft SQL Server等。其最基本的功能就是允许用户逻辑地使用数据而无需关注这些数据在计算机中是如何存放、如何处理的。</p>
+<ul>
+<li><strong>数据定义</strong>：方便用户定义数据的逻辑结构</li>
+<li><strong>数据操控</strong>：方便用户对数据进行插入、删除、查询、修改等操作</li>
+<li><strong>完整性约束检查</strong>：数据必须符合一些规定，如学号必须唯一、所属地区必须存在等</li>
+<li><strong>访问机制</strong>：只有合法用户可以访问、操作数据</li>
+<li><strong>并发控制</strong>：允许多个用户、应用并发访问数据库而不破坏数据的一致性</li>
+<li><strong>数据库恢复</strong></li>
+</ul>
+</li>
+<li><p><strong>数据库系统</strong>（Database System）：包括数据库、DBMS、应用系统、计算机硬件、数据库管理员（DBA）</p>
+<ul>
+<li><strong>整体数据的结构化</strong>：数据库中的数据不属于任何应用而是公共的，结构是全面的。</li>
+<li><strong>数据的共享度高</strong>：合法用户可以同时使用数据。</li>
+<li><strong>数据的独立性高</strong>：数据和程序之间相互独立。</li>
+<li><strong>高度的数据控制能力</strong><ul>
+<li>数据安全性高：在DBMS管理下，只有合法用户可以访问数据库。</li>
+<li>数据完整性好：DBMS自动检查数据的一致性、相容性。</li>
+<li>并发控制能力强：可以使多个用户同时对数据库中的数据进行操作而不破坏数据的完整性。</li>
+<li>数据恢复能力强：具备恢复数据库的功能。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/数据库原理/1.jpg" style="zoom:45%;">
+</li>
+<li><p><strong>数据库的人员构成</strong></p>
+<ul>
+<li><strong>数据库管理员</strong>（DBA）<ul>
+<li>在用户与数据库开发人员之间进行沟通协调</li>
+<li>参与数据库设计工作，熟悉数据库的整体布局</li>
+<li>决定数据库的完整性约束条件和不同用户的存取权限</li>
+<li>进行数据库的维护工作，保证数据库的正常运行</li>
+</ul>
+</li>
+<li><strong>数据库设计者</strong>：一般由DBA担任。需要分析用户需求，选取适当的存储结构。</li>
+<li><strong>应用程序开发人员</strong>：开发程序来实现对数据库应用程序的各功能模块</li>
+<li><strong>终端用户</strong>：利用应用程序访问、操作数据库，是数据库的主要面向对象</li>
+</ul>
+</li>
+<li><p><strong>三级模式结构</strong>：不同层次级别的用户看到的数据视图是不同的</p>
+<ul>
+<li><strong>（逻辑）模式</strong>：唯一。数据在逻辑上的视图，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。</li>
+<li><strong>外模式</strong>：不唯一。呈现给终端用户的视图，外模式根据终端用户的需求呈现特定部分的数据库。一个外模式可以被多个应用程序应用，一个应用程序只能应用一个外模式。外模式是模式的子集。</li>
+<li><strong>内模式</strong>：唯一。定义了数据库存取的物理结构，与软件和硬件环境有关。</li>
+</ul>
+</li>
+<li><p><strong>二级映像</strong>：当其中一模式改变时只需修改相应的映像即可使另一模式不发生变化</p>
+<ul>
+<li><strong>外模式/模式映像</strong>：逻辑独立性，模式发生改变时无需改变外模式与应用程序。</li>
+<li><strong>模式/内模式映像</strong>：物理独立性，内模式改变时无需改变模式。</li>
+</ul>
+</li>
+<li><p><strong>应用程序读取数据的过程</strong></p>
+<ul>
+<li>终端用户通过应用程序指定外模式名发出命令</li>
+<li>DBMS调取相应的外模式，同时检查用户的权限，只有通过检查可以继续</li>
+<li>DBMS根据外模式 /模式映像得到相应数据在模式上的信息</li>
+<li>DBMS根据模式 /内模式映像得到相应数据在内模式上的信息</li>
+<li>DBMS向操作系统发出读取该数据的请求</li>
+<li>操作系统将该数据从外存中调入系统缓存区中</li>
+<li>DBMS将数据按照外模式的形式送至用户工作区</li>
+<li>记载系统工作日志</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 Starlit Rover
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Jammy Zeta
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/js/md5.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: 'f1d02ea5b1fd5309c4b9',
+        clientSecret: 'fea96546fcd9dc7495659e8c9d6c20cd75fa7dbe',
+        repo: 'Blog-Comments',      // The repository of store comments,
+        owner: 'StarlitRover',
+        admin: ['StarlitRover'],
+        language: 'zh-CN',
+        id: md5(location.pathname),     // (Ensure uniqueness and length less than 50)
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>
