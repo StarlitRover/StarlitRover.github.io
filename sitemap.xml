@@ -306,13 +306,6 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
-    <lastmod>2022-03-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://starlitrover.xyz/tags/map/</loc>
     <lastmod>2022-03-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -327,14 +320,14 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/sort/</loc>
+    <loc>https://starlitrover.xyz/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
     <lastmod>2022-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/prime/</loc>
+    <loc>https://starlitrover.xyz/tags/sort/</loc>
     <lastmod>2022-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -356,6 +349,13 @@
   
   <url>
     <loc>https://starlitrover.xyz/tags/queue/</loc>
+    <lastmod>2022-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://starlitrover.xyz/tags/prime/</loc>
     <lastmod>2022-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
