@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starlit Rover || 「Section 6」指令系统⓿</title>
+    <title>Starlit Rover || 「Section 6」指令系统</title>
     <meta name="author" content="Jammy Zeta">
     <meta name="description" content="Just stroll in the starlit firmament~ ">
     <meta name="keywords" content=" ">
@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
 <link rel="stylesheet" href="/css/post-body.css">
 <div class="article">
     <div>
-        <h1>「Section 6」指令系统⓿ </h1>
+        <h1>「Section 6」指令系统 </h1>
     </div>
     <div class="info">
         <span class="date">
@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/notes" style=color:#006674>
+                <a href="/tags/notes" style=color:#607d8b>
                     notes
                 </a>
             </span>
@@ -293,13 +293,15 @@ mjx-container[display="true"] + br {
     </div>
 
     <div class="content" v-pre>
-        <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="6.787ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 3000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g><g data-mml-node="mstyle" transform="translate(2000,0)"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>α. <a href="#1">指令系统概述</a><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>β. <a href="#2">指令格式</a></p>
+        <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="6.787ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 3000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g><g data-mml-node="mstyle" transform="translate(2000,0)"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>α. <a href="#1">指令系统概述</a></p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="6.787ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 3000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g><g data-mml-node="mstyle" transform="translate(2000,0)"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>β. <a href="#2">指令格式</a></p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="6.787ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 3000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g><g data-mml-node="mstyle" transform="translate(2000,0)"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>γ. <a href="#3">操作数类型</a></p>
+<span id="more"></span>
+
 <hr>
 <h2><span id="α-指令系统概述">α <span id="1">指令系统概述</span></span></h2><ol>
 <li><p>现代冯·诺伊曼计算机结构框图是以存储器为中心，计算机的工作过程就是循环往复地取指令、分析指令、执行指令的过程。</p>
 <img src="/images/计算机组成原理/5/1.png" style="zoom:45%;">
-
-<span id="more"></span>
 </li>
 <li><p><strong>一些概念</strong></p>
 <ul>
@@ -390,6 +392,32 @@ mjx-container[display="true"] + br {
 </li>
 <li><p><strong>零地址指令</strong>：OP，无需操作数如占位和延时而设置的空操作指令NOP、等待指令WAIT、停机指令HALT等，或是隐含操作数的单目运算符</p>
 <p>⚠️上述四种指令可以并存于一个指令系统</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2><span id="γ-操作数类型">γ <span id="3">操作数类型</span></span></h2><ol>
+<li><p>根据操作数的存放位置进行分类</p>
+<ul>
+<li><strong>立即数类型</strong>：操作数是常数，存放在指令的地址字段A上（指令存放在主存 [⚠️即为内存] 中）</li>
+<li><strong>寄存器类型</strong>：操作数存放在CPU的通用寄存器中，A为寄存器编号/地址</li>
+<li><strong>存储器类型</strong>：操作数存放在主存中，A为其地址信息（取决于寻址方式）</li>
+<li><strong>I/O数据类型</strong>：操作数存放在I/O设备接口中，A为其端口地址Port</li>
+</ul>
+</li>
+<li><p>根据操作数的物理含义进行分类</p>
+<ul>
+<li><p><strong>数值数据</strong>：整数、浮点数、十进制数，带符号数/ 无符号数</p>
+</li>
+<li><p><strong>指针/地址</strong>：指存储器地址，由访问存储器的指令计算出（⚠️是无符号整数）</p>
+</li>
+<li><p><strong>位或位串数据</strong>：一般用于表示标志位、状态位、控制位等信息</p>
+</li>
+<li><p><strong>字符或者字符串</strong>：一般用于表示文本信息，包括西文字符(ASCIl码）和中文字（内码）等</p>
+</li>
+<li><p><strong>逻辑数据</strong>：用0/1表示真/假的逻辑值，通常用于条件转移指令中对条件码的检测</p>
+<p>⚠️仅根据操作数的二进制代码则无法进行区分其具体的含义</p>
 </li>
 </ul>
 </li>
