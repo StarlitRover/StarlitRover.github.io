@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starlit Rover || 「Section 2」建立数据模型</title>
+    <title>Starlit Rover || Build Qt in arm64</title>
     <meta name="author" content="Jammy Zeta">
     <meta name="description" content="Just stroll in the starlit firmament~ ">
     <meta name="keywords" content=" ">
@@ -253,23 +253,23 @@ mjx-container[display="true"] + br {
 <link rel="stylesheet" href="/css/post-body.css">
 <div class="article">
     <div>
-        <h1>「Section 2」建立数据模型 </h1>
+        <h1>Build Qt in arm64 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/3/6
+            2022/3/19
         </span>
 
         
         <span class="category">
-            <a href="/categories/数据库原理">
+            <a href="/categories/血泪史">
                 <span class="icon">
                     <a-icon type="book" theme="filled" />
                 </span>
-                数据库原理
+                血泪史
             </a>
         </span>
         
@@ -283,8 +283,8 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/notes" style=color:#016a99>
-                    notes
+                <a href="/tags/arm64" style=color:#016a99>
+                    arm64
                 </a>
             </span>
             
@@ -293,64 +293,101 @@ mjx-container[display="true"] + br {
     </div>
 
     <div class="content" v-pre>
-        <ol>
-<li><p>概念模型的基本概念</p>
-<ul>
-<li><p><strong>实体</strong>：客观事物的映射，可以是实际存在的对象，也可以是某种概念</p>
-</li>
-<li><p><strong>属性</strong>：实体的特征，描述实体，使实体更为具体</p>
-</li>
-<li><p><strong>域</strong>：一个属性的取值范围</p>
-</li>
-<li><p><strong>实体集</strong>：所有具有相同属性的实体所构成的集合</p>
+        <h2><span id="︎-引言">♿︎ 引言</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>自从电脑换成Mac后就需要面对芯片架构不同带来的众多问题，市场上还是有很多软件只适配x86而不支持arm。当然这段时间我体验下来，arm架构采用的是精简指令集，在续航方面全面吊打x86，一般来说不插电工作一天绰绰有余。当然缺点也很明显，就是软件市场依然不是很友好，比如说VS（坦白地说，VS for mac就是微软做出来嘲笑苹果的）。虽然很多软件表示已经在开发arm版，但还是需要一定时间的。这也是本文存在的原因。</p>
 <span id="more"></span>
-</li>
-<li><p><strong>实体型</strong>：实体名称以及所有属性名构成的集合</p>
-</li>
-<li><p><strong>码</strong>：实体集中可以根据一个属性或多个属性唯一确定每一个实体，那么称该属性或属性组为码</p>
-</li>
-</ul>
-</li>
-<li><p>主要的<strong>数据模型</strong></p>
-<ul>
-<li>层次模型</li>
-<li>网状模型</li>
-<li>关系模型</li>
-<li>面向对象模型</li>
-</ul>
-</li>
-<li><p><strong>数据模型的三大基本组成部分</strong></p>
-<ul>
-<li><strong>数据结构</strong>：实体间联系在信息世界的表示方法。描述了系统的静态特性。</li>
-<li><strong>数据操作</strong>：对数据可以执行的操作（主要有<mark>数据维护、数据检索</mark>两大类）及操作规则。描述了系统的动态特性。</li>
-<li><strong>完整性约束</strong>：只执行符合完整性约束条件的操作，从而保证数据的正确、有效、相容。</li>
-</ul>
-</li>
-<li><p><strong>E-R图的基本表示方法</strong></p>
-<ul>
-<li>矩形表示实体集，椭圆表示实体集的属性，两者之间用无向边相连</li>
-<li>实体的码（**e.g.**学号，身份证号）用下划线标出</li>
-<li>菱形表示实体集之间的关系，菱形中写上关系名，与实体集的连线上则写上两个实体集之间的数量对应关系（联系的阶）<ul>
-<li>一对一：1:1</li>
-<li>一对多：1:n</li>
-<li>多对多：m:n</li>
-</ul>
-</li>
-</ul>
-<img src="/images/数据库原理/2.png" style="zoom:45%;">
-</li>
-<li><p><strong>多元联系</strong>：两个以上实体集之间的联系</p>
-<p><img src="/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/3.png"></p>
-</li>
-<li><p><strong>联系的属性</strong>：有时一个属性从逻辑上不能单独分配给一个实体时，可以将属性分配给联系</p>
-<img src="/images/数据库原理/4.png" style="zoom:80%;">
 
-<p>上图中一名学生有多门选课的成绩，而一门课程则有多个学生的成绩，因此两者都不能直接拥有成绩属性，而是将成绩属性分配给选课关系更为合适，一个选课一个成绩。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>导师那边有个框架之前我都是在老电脑的VS上用的（之前也只有VS版），然而最近发布的新版本使用了<strong>CMake</strong>。众所周知，<strong>CMake</strong>是一款跨平台编译工具，像<strong>CLion</strong>就是使用<strong>CMake</strong>进行编译的。Mac人狂喜，然而被学长告知框架所需的Qt目前只支持x86，arm版的需要自己编译。可以自己编译的关键一点是，Qt是开源的，我们可以获得其源码。那么简单地来说，虽然直接下载下来的Qt是x86版的，但只要将其源码在自己电脑编译一遍，生成的就是适配自己电脑的版本啦。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>这就不得不提到<code>makefile</code>文件。该文件是Linux下的一个工程管理文件，类似CMake文件，指出了如何编译软件的规则，有着自己专门的语法。但我目前也不是很了解，只是刚刚入门，以后有机会的话再讲吧。</p>
+<hr>
+<h3><span id="版本信息">版本信息</span></h3><ul>
+<li><strong>Qt 5.15.2</strong></li>
+<li><strong>CLion 2021.3.4</strong></li>
+<li><strong>MacOS Monterey 12.3</strong></li>
+</ul>
+<hr>
+<h2><span id="build">⩙ BUILD</span></h2><ol>
+<li><p>打开terminal，使用homebrew（默认已有）安装依赖项</p>
+<pre><code class="zsh">brew install pcre2 harfbuzz freetype
+#下面这一项可能不需要，保险起见就安上
+brew install cmake ninja python
+</code></pre>
 </li>
-<li><p><strong>强实体集</strong>：有码的实体集；<strong>弱实体集</strong>：无码的实体集，依赖于其余一个或多个实体集的码。</p>
+<li><p>下载<strong>Qt 5.15.2</strong>的源码，通道<a target="_blank" rel="noopener" href="https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz">在此</a></p>
+</li>
+<li><p>假设下载的压缩包<strong>qt-everywhere-src-5.15.2.tar.xz</strong>所在文件夹的绝对路径为<code>path</code>，在terminal内</p>
+<pre><code class="zsh">cd path
+#解压压缩包
+x qt-everywhere-src-5.15.2.tar.xz
+#创建文件夹buildir
+mkdir buildir
+cd buildir
+#设置arm64版编译并生成makefile
+../qt-everywhere-src-5.15.2/configure -release -prefix ./outDir -nomake examples -nomake tests QMAKE_APPLE_DEVICE_ARCHS=arm64 -opensource -confirm-license -skip qt3d -skip qtwebengine
+#接下来会生成很多命令，不用管
+</code></pre>
+</li>
+<li><p>在<code>make</code>命令之前我们需要消除两个问题（当然直接打开文件改也行，下面是在terminal中用vim修改）</p>
+<ul>
+<li><p>首先打开第一个更改文件，path是上面那个绝对路径</p>
+<pre><code class="zsh">vim path/qt-everywhere-src-5.15.2/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
+</code></pre>
+<p>找到下面的语句块</p>
+<pre><code class="c++">#include &lt;qpa/qplatformgraphicsbuffer.h&gt;
+#include &lt;private/qcore_mac_p.h&gt;
+</code></pre>
+<p>进入vim的插入模式，在该语句块前加上</p>
+<pre><code class="c++">#include &lt;CoreGraphics/CGColorSpace.h&gt;
+</code></pre>
+<p>最后应该是这样子的</p>
+<img src="/images/血泪史/1/1.png" style="zoom:60%;">
+
+<p>改完后保存退出：esc+输入<code>:wq</code></p>
+</li>
+<li><p>打开第二个更改文件</p>
+<pre><code class="zsh">vim path/qt-everywhere-src-5.15.2/qtlocation/include/QtLocation/5.15.2/QtLocation/private/../../../../../src/location/declarativemaps/qdeclarativepolylinemapitem_p_p.h
+</code></pre>
+<p>输入<code>:set number</code>后显示行号，然后将523行处的<code>typedef struct {</code>改为<code>typedef struct MapPolylineEntry {</code>，改完后保存退出</p>
+</li>
+</ul>
+</li>
+<li><p>接下来开启所有进程进行编译</p>
+<pre><code class="zsh">#在buildir目录下
+make -j$(nprocs)
+</code></pre>
+</li>
+<li><p>上步完成后开始安装</p>
+<pre><code class="zsh">make install -j$(nprocs)
+</code></pre>
+</li>
+<li><p>安装完成后可以把和buildir同层目录内的<strong>qt-everywhere-src-5.15.2.tar.xz</strong>与<strong>qt-everywhere-src-5.15.2</strong>给删了</p>
+</li>
+<li><p>此时arm64版Qt算是安装完成（buildir），接下来（可以忽略）是在CLion上的iGameMeshView工程中使用Qt</p>
+</li>
+<li><p>修改iGameMeshView的cmake文件</p>
+<pre><code class="CMake"># MacOS
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
+    message(STATUS "编译器是AppleClang")
+    #设置QT的目录
+    set(Qt5Core_DIR path/buildir/outDir/lib/cmake/Qt5Core)
+    set(Qt5Gui_DIR path/buildir/outDir/lib/cmake/Qt5Gui)
+    set(Qt5OpenGL_DIR path/buildir/outDir/lib/cmake/Qt5OpenGL)
+    set(Qt5Widgets_DIR path/buildir/outDir/lib/cmake/Qt5Widgets)
+</code></pre>
+</li>
+<li><p>完成</p>
 </li>
 </ol>
+<hr>
+<h3><span id="reference">「Reference」</span></h3><ul>
+<li><p>Qt5适配M1：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wqcwood/p/15138983.html">https://www.cnblogs.com/wqcwood/p/15138983.html</a></p>
+</li>
+<li><p>[Qt] Fix missing Cocoa include：<a target="_blank" rel="noopener" href="https://github.com/microsoft/vcpkg/pull/21056/commits/99582d154236b0e7af70cadef8420c4f25829f61">https://github.com/microsoft/vcpkg/pull/21056/commits/99582d154236b0e7af70cadef8420c4f25829f61</a></p>
+</li>
+</ul>
+<hr>
+<br>
 
+<center>❃ 特别鸣谢CJgg两节课的耐心讲解 /doge</center>
     </div>
 
     

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://starlitrover.xyz/2022/03/19/Build-Qt-in-arm64/</loc>
+    <lastmod>2022-03-19</lastmod>
+  </url>
+  <url>
+    <loc>https://starlitrover.xyz/2022/03/03/OpenGL%E8%90%BD%E8%84%9ACLion/</loc>
+    <lastmod>2022-03-19</lastmod>
+  </url>
+  <url>
     <loc>https://starlitrover.xyz/2022/03/16/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2022-03-17</lastmod>
   </url>
@@ -31,10 +39,6 @@
   <url>
     <loc>https://starlitrover.xyz/2022/03/08/Bezier-Curve/</loc>
     <lastmod>2022-03-13</lastmod>
-  </url>
-  <url>
-    <loc>https://starlitrover.xyz/2022/03/03/OpenGL%E8%90%BD%E8%84%9ACLion/</loc>
-    <lastmod>2022-03-12</lastmod>
   </url>
   <url>
     <loc>https://starlitrover.xyz/2022/02/24/%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/</loc>
