@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/notes" style=color:#6484be>
+                <a href="/tags/notes" style=color:#016a99>
                     notes
                 </a>
             </span>
@@ -483,7 +483,9 @@ cat test.c|./a.out
 <h2><span id="一个小坑">∂ 一个小坑</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第四部分中我一开始将<code>{KEYWORD}</code>放在<code>{ID}</code>的后面，执行Flex的时候一直报错</p>
 <pre><code class="zsh">SysY.l:36: warning, rule cannot be matched
 </code></pre>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>很迷，当时改来改去这个warning就一直跟着<code>{KEYWORD}</code>跑，只有行号在变化。这条warning的意思应该是无法匹配<code>{KEYWORD}</code>这条规则。仔细想想，<code>{KEYWORD}</code>匹配的都是关键字，那么为什么关键字会成为关键字呢？因为在一开始的时候就被<code>{KEYWORD}</code>匹配到了，从而用户不能用关键字来定义变量名。这时候一看<code>{ID}</code>果然放在<code>{KEYWORD}</code>前面，显然<code>{KEYWORD</code>}是<code>{ID}</code>的一个子集，因此<code>{ID}</code>匹配完后<code>{KEYWORD}</code>就是光杆司令一个了。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>很迷，当时改来改去这个warning就一直跟着<code>{KEYWORD}</code>跑，只有行号在变化。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>这条warning的意思应该是无法匹配<code>{KEYWORD}</code>这条规则。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>仔细想想，<code>{KEYWORD}</code>匹配的都是关键字，那么为什么关键字会成为关键字呢？因为在一开始的时候就被<code>{KEYWORD}</code>匹配到了，从而用户不能用关键字来定义变量名。这时候一看<code>{ID}</code>果然放在<code>{KEYWORD}</code>前面，显然<code>{KEYWORD}</code>是<code>{ID}</code>的一个子集，因此<code>{ID}</code>匹配完后<code>{KEYWORD}</code>就是光杆司令一个了。</p>
 
     </div>
 
