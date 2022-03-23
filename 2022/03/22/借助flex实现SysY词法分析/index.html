@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starlit Rover || 借助flex实现SysY词法分析</title>
+    <title>Starlit Rover || 借助Flex实现SysY词法分析</title>
     <meta name="author" content="Jammy Zeta">
     <meta name="description" content="Just stroll in the starlit firmament~ ">
     <meta name="keywords" content=" ">
@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
 <link rel="stylesheet" href="/css/post-body.css">
 <div class="article">
     <div>
-        <h1>借助flex实现SysY词法分析 </h1>
+        <h1>借助Flex实现SysY词法分析 </h1>
     </div>
     <div class="info">
         <span class="date">
@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/notes" style=color:#607d8b>
+                <a href="/tags/notes" style=color:#6484be>
                     notes
                 </a>
             </span>
@@ -306,12 +306,12 @@ mjx-container[display="true"] + br {
 <li><p><code>;</code>        ：&lt; SEMICN , ‘;’ &gt;</p>
 <span id="more"></span></li>
 </ul>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>token的一般形式为&lt;type , literal&gt;，其中type为该词所属类型，literal则为其表值。词法分析的理论部分主要是自动机的构造以及转换，并不是太难，这里不做赘述。本篇文章主要讲述如何借助<strong>flex</strong>工具来生成<strong>SysY语言</strong>（C语言的一个子集，具体语言定义<a href="/files/SysY%E8%AF%AD%E8%A8%80%E5%AE%9A%E4%B9%89.pdf">见这</a>）的词法分析。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>token的一般形式为&lt;type , literal&gt;，其中type为该词所属类型，literal则为其表值。词法分析的理论部分主要是自动机的构造以及转换，并不是太难，这里不做赘述。本篇文章主要讲述如何借助<strong>Flex</strong>工具来生成<strong>SysY语言</strong>（C语言的一个子集，具体语言定义<a href="/files/SysY%E8%AF%AD%E8%A8%80%E5%AE%9A%E4%B9%89.pdf">见这</a>）的词法分析。</p>
 <hr>
 <blockquote>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>Flex的前身是Lex。Lex是1975年由Mike Lesk和当时还在AT&amp;T做暑期实习的Eric Schmidt，共同完成的一款基 于Unix环境的词法分析程序生成工具。虽然Lex很出名并被广泛 使用，但它的低效和诸多问题也使其颇受诟病。后 来伯克利实验室的Vern Paxson使用C语言 重写Lex，并将这个新的程序命名为Flex(意为Fast Lexical Analyzer Generator)。无论在效率上还是在稳定性上，Flex都远远好于它的前辈Lex。我们在Linux下使用的是Flex在GNU License下的版本，称作GNU Flex。</p>
 </blockquote>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>flex是一个帮助生成词法分析代码的工具，你只需告诉它目标语言中各个词法的正则表达式，flex就会帮你生成一个lex.yy.c的C代码文件。那么首先你需要提交给flex一个<code>.l</code>文件来告诉它词法规则，该文件的格式如下：</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>Flex是一个帮助生成词法分析代码的工具，你只需告诉它目标语言中各个词法的正则表达式，Flex就会帮你生成一个lex.yy.c的C代码文件。那么首先你需要提交给Flex一个<code>.l</code>文件来告诉它词法规则，该文件的格式如下：</p>
 <pre><code class="flex">%option xxx
 %{
     Declarations
@@ -322,12 +322,12 @@ mjx-container[display="true"] + br {
 %%
     User Subroutines
 </code></pre>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第一行的option是来开启flex自带的一些辅助功能。比如说flex提供行号记录变量<code>yylineno</code>，我们可以直接通过该变量读取当前行号而且无需维护，但在默认状态下该变量不开放给用户，如需使用就要在开头加入<code>%option yylineno</code>。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第一行的option是来开启Flex自带的一些辅助功能。比如说Flex提供行号记录变量<code>yylineno</code>，我们可以直接通过该变量读取当前行号而且无需维护，但在默认状态下该变量不开放给用户，如需使用就要在开头加入<code>%option yylineno</code>。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第二部分<strong>%{…%}<strong>中的</strong>Declarations</strong>呢，是会直接加入生成代码的靠前部分，一般是引用头文件或者是定义初始变量。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第三部分<strong>%}…%%<strong>中的</strong>Definitions</strong>则是定义段，这里一般会为比较长的正则表达式命名以方便下一模块的描述，类似于C语言中的宏定义。正则表达式具体的语法可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/120819122">Flex 核心规范</a>。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第四部分<strong>%%…%%<strong>的</strong>Rules</strong>则是该文件的核心部分——规则段。规则段就是定义需要被识别出来的词法类型（可以用第三部分中的定义来组合），以及识别到该类型时需要进行的操作。每一次flex都会使用尽可能长的字符串进行匹配，即选择最长字符串可以匹配到的类型。但当同一个长度的字符串匹配了多个类型时，默认选择第一个匹配到的类型，因此Rules的排列也有讲究。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第五部分<strong>User Subroutines</strong>则是用户自己的代码，会直接复制到生成代码的最后。前面词法识别规则会直接被flex翻译为一个<code>yylex()</code>函数，该函数即为匹配词法类型的函数。那么如果用户需要做一些错误处理（比如识别到该语言中不存在的字符）以及部分类型识别到后需要单独处理时，就可以将处理代码写在这。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>另外，flex还提供了两个全局变量 <code>yytext</code> 和 <code>yyleng</code>，分别表示刚刚匹配到类型的字符串与该字符串的长度。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第四部分<strong>%%…%%<strong>的</strong>Rules</strong>则是该文件的核心部分——规则段。规则段就是定义需要被识别出来的词法类型（可以用第三部分中的定义来组合），以及识别到该类型时需要进行的操作。每一次Flex都会使用尽可能长的字符串进行匹配，即选择最长字符串可以匹配到的类型。但当同一个长度的字符串匹配了多个类型时，默认选择第一个匹配到的类型，因此Rules的排列也有讲究。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第五部分<strong>User Subroutines</strong>则是用户自己的代码，会直接复制到生成代码的最后。前面词法识别规则会直接被Flex翻译为一个<code>yylex()</code>函数，该函数即为匹配词法类型的函数。那么如果用户需要做一些错误处理（比如识别到该语言中不存在的字符）以及部分类型识别到后需要单独处理时，就可以将处理代码写在这。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>另外，Flex还提供了两个全局变量 <code>yytext</code> 和 <code>yyleng</code>，分别表示刚刚匹配到类型的字符串与该字符串的长度。</p>
 <hr>
 <h2><span id="sysyl">❦ SysY.l</span></h2><pre><code class="flex">%option yylineno
 
@@ -454,7 +454,7 @@ int main()
 <li>对于多行注释，我们知道开头是“/*”，中间部分只要不出现“*/”即可。那么我们可以考虑将中间部分（包括结尾“*/”中的“*”）分为多段以“**···*”（<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.564ex" xmlns="http://www.w3.org/2000/svg" width="7.543ex" height="2.26ex" role="img" focusable="false" viewbox="0 -749.5 3334 999"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo" transform="translate(0 -0.5)"><path data-c="7C" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"/></g><g data-mml-node="mo" transform="translate(500.2,0)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"/></g><g data-mml-node="mo" transform="translate(1222.4,0) translate(0 -0.5)"><path data-c="7C" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"/></g><g data-mml-node="mo" transform="translate(1778.2,0)"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"/></g><g data-mml-node="mn" transform="translate(2834,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g></g></g></svg></mjx-container>）结尾的字符串，每一段的结尾前面都不能出现“*”。那么每一小段都可以先写为<code>[^*]*"*"+</code>（⚠️”*“仅表示字符，*表示前面部分的Kleene闭包）。但是每一段连起来的时候不能出现“*/”，因此每一小段的开头都不能是“/”，这时则可以写为<code>[^/*][^*]*"*"+</code>。然而第一小段以“/”开头却是没关系的（<code>/*/</code>不是一个完整的注释），因此第一小段单独写为<code>[^*]*"*"+</code>。最终多行注释的正则表达式即为<code>"/*"[^*]*"*"+([^/*][^*]*"*"+)*"/"</code>。</li>
 </ul>
 </li>
-<li>第五部分主要实现了八进制与十六进制的转换，以及一些错误处理，包括识别非法八进制、十六进制字符的报错和非法字符的报错</li>
+<li>第五部分主要实现了八进制与十六进制的转换，以及一些错误处理，包括识别非法八进制、十六进制字符和非法字符的报错</li>
 <li>八进制与十六进制的非法字符识别是另外定义了两个类型<strong>ILLEGAL_OCTAL_CONST</strong>与<strong>ILLEGAL_HEX_CONST</strong>，分别置于第四部分中<strong>OCTAL_CONST</strong>和<strong>HEX_CONST</strong>的后面。这样一来如果更长的字符串匹配到了<strong>ILLEGAL</strong>类型就会返回<strong>ILLEGAL</strong>，而正确的格式只会匹配前者。</li>
 <li><code>yylex()</code>函数每次匹配一段字符串，若匹配成功则执行该类型后面的操作，操作中如无<code>return</code>语句则继续识别，如有<code>return</code>语句则返回<code>main</code>函数</li>
 </ol>
@@ -471,7 +471,7 @@ int main()
     $
 }
 </code></pre>
-<h3><span id="cast-magic">Cast Magic 🪄</span></h3><pre><code class="zsh">flex SysY.l                    
+<h3><span id="cast-magic">Cast Magic 🪄</span></h3><pre><code class="zsh">Flex SysY.l                    
 clang lex.yy.c -ly -ll
 cat test.c|./a.out
 </code></pre>
@@ -480,7 +480,7 @@ cat test.c|./a.out
 <br>
 
 <hr>
-<h2><span id="一个小坑">∂ 一个小坑</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第四部分中我一开始将<code>{KEYWORD}</code>放在<code>{ID}</code>的后面，执行flex的时候一直报错</p>
+<h2><span id="一个小坑">∂ 一个小坑</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第四部分中我一开始将<code>{KEYWORD}</code>放在<code>{ID}</code>的后面，执行Flex的时候一直报错</p>
 <pre><code class="zsh">SysY.l:36: warning, rule cannot be matched
 </code></pre>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>很迷，当时改来改去这个warning就一直跟着<code>{KEYWORD}</code>跑，只有行号在变化。这条warning的意思应该是无法匹配<code>{KEYWORD}</code>这条规则。仔细想想，<code>{KEYWORD}</code>匹配的都是关键字，那么为什么关键字会成为关键字呢？因为在一开始的时候就被<code>{KEYWORD}</code>匹配到了，从而用户不能用关键字来定义变量名。这时候一看<code>{ID}</code>果然放在<code>{KEYWORD}</code>前面，显然<code>{KEYWORD</code>}是<code>{ID}</code>的一个子集，因此<code>{ID}</code>匹配完后<code>{KEYWORD}</code>就是光杆司令一个了。</p>
