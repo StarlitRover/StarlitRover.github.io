@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/notes" style=color:#607d8b>
+                <a href="/tags/notes" style=color:#6484be>
                     notes
                 </a>
             </span>
@@ -297,16 +297,19 @@ mjx-container[display="true"] + br {
 <li><p><strong>寻址方式</strong>：（由硬件）确定本条指令的操作数地址，以及下一条指令地址的方法</p>
 <ul>
 <li><strong>指令寻址</strong>：指令在主存中是按顺序存放的，我们确定下一条指令在主存中的地址<ul>
-<li><strong>顺序寻址</strong>：PC永远指向下一条指令的地址，取完指令后自动自增指向下一条待执行指令地址</li>
-<li><strong>跳跃寻址</strong>：当前指令将目标指令的地址置入PC中从而实现跳转（本质上也是顺序寻址的结果）</li>
-<li>寄存器PC在开机上电后自动初始化为第一条指令地址</li>
+<li><p><strong>顺序寻址</strong>：PC永远指向下一条指令的地址，取完指令后自动自增指向下一条待执行指令地址</p>
+</li>
+<li><p><strong>跳跃寻址</strong>：当前指令将目标指令的地址置入PC中从而实现跳转（本质上也是顺序寻址的结果）</p>
+</li>
+<li><p>寄存器PC在开机上电后自动初始化为第一条指令地址</p>
+<span id="more"></span></li>
 </ul>
 </li>
 <li><strong>数据寻址</strong>：确定操作数在主存中的地址<ul>
 <li><p><strong>形式地址</strong>：指令的<strong>地址码字段Addr</strong>，通常都不是真实的地址值</p>
 </li>
 <li><p><strong>有效地址</strong>：操作数在主存中的真实地址，由地址码字段Addr与寻址方式共同确定，记作<strong>EA</strong></p>
-<span id="more"></span></li>
+</li>
 </ul>
 </li>
 </ul>
@@ -361,7 +364,7 @@ mjx-container[display="true"] + br {
 <li><p><strong>堆栈寻址</strong>：寻找存放在堆栈中的操作数称为堆栈寻址。根据开辟堆栈的位置可以将堆栈分为存储器堆栈和寄存器堆栈。</p>
 <ul>
 <li><p><strong>存储器堆栈</strong></p>
-<img src="/images/计算机组成原理/6/3.jpg" style="zoom:50%;">
+<img src="/images/计算机组成原理/6/3.jpg" style="zoom:45%;">
 
 <ul>
 <li>堆栈指针寄存器SP指向栈顶单元</li>
