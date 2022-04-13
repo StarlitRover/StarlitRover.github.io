@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/notes" style=color:#006674>
+                <a href="/tags/notes" style=color:#607d8b>
                     notes
                 </a>
             </span>
@@ -309,8 +309,6 @@ mjx-container[display="true"] + br {
 <li><p><strong>分时系统</strong>（Time Sharing System）：指多个终端与同一个计算机连接，允许多个用户同时使用一台计算机的系统。分时系统的重要特性包括多路性、独占性、交互性和及时性。</p>
 <img src="/images/计算机网络/0/2.png" style="zoom:50%;">
 </li>
-<li><p><strong>星型结构</strong>：中心有一台计算机，周围连接着众多终端，形似星形。</p>
-</li>
 <li><p><strong>分组交换</strong>：分组交换是指将大数据分割为一个个叫做包（Packet）的较小单位进行传输的方法。</p>
 <img src="/images/计算机网络/0/3.png" style="zoom:50%;">
 </li>
@@ -325,7 +323,7 @@ mjx-container[display="true"] + br {
 </li>
 <li><p><strong>子网掩码</strong>：一串与IP地址长度相同的32比特数字。左边一部分全为1，相对应的IP地址部分表示网络号；右边剩余部分全为0，对应的IP地址部分表明主机号。</p>
 </li>
-<li><p><strong>DNS</strong>: Domain Namme System，域名服务系统。将服务器名称和 IP 地址进行关联是 DNS 最常见的用法，但 DNS 的功能并不仅限于此，它还可以将邮件地址和邮件服务器进行关联，以及为各种信息关联相应的名称。</p>
+<li><p><strong>DNS</strong>: Domain Namme System，域名服务系统。将服务器名称和 IP 地址进行关联是 DNS 最常见的用法，但 DNS 的功能并不仅限于此，它还可以将邮件地址和邮件服务器进行关联，以及为各种信息关联相应的名称。⚠️<strong>一个IP地址可以对应多个域名，一个域名也可以解析为多个IP地址。</strong></p>
 </li>
 <li><p><strong>面向有连接型</strong>：面向有连接型中，在发送数据之前，需要在收发主机之间连接一条通信线路。（需要对方同意）</p>
 </li>
@@ -347,7 +345,7 @@ mjx-container[display="true"] + br {
 <img src="/images/计算机网络/0/7.png" style="zoom:50%;">
 </li>
 <li><p><strong>网关</strong>：转发其他服务器通信数据的服务器，接收从客户端发送来的请求时，它就像自己拥有资源的源服务器一样对请求进行处理。网关能使通信线路上的服务器提供非 HTTP协议服务。</p>
-<img src="/images/计算机网络/0/8.png" style="zoom:50%;">
+<img src="/images/计算机网络/0/8.png" style="zoom:30%;">
 </li>
 <li><p><strong>报文</strong>：是HTTP通信中的基本单位，由8位组字节流 (octet sequence，其中 octet 为8个比特）组成，通过 HTTP 通信传输。</p>
 </li>
@@ -361,6 +359,14 @@ mjx-container[display="true"] + br {
 <img src="/images/计算机网络/0/9.png" style="zoom:50%;">
 </li>
 <li><p><strong>端口号</strong>：明确指出某台具体计算机上某个具体的套接字。如果说描述符是用来在一台计算机内部识别套接字的机制，那么端口号就是用来让通信的另一方能够识别出套接字的机制。</p>
+</li>
+<li><p><strong>负载均衡</strong>：其职责是将网络请求，或者其他形式的负载“均摊”到不同的机器上，避免集群中部分服务器压力过大，而另一些服务器比较空闲的情况。通过负载均衡，可以让每台服务器获取到适合自己处理能力的负载。在为高负载服务器分流的同时，还可以避免资源浪费，一举两得。</p>
+</li>
+<li><p><strong>虚拟主机</strong>（virtual hosting）：或称 <strong>共享主机</strong>（shared web hosting），又称<strong>虚拟服务器</strong>，是一种在单一主机或主机群上，实现多网域服务的方法，可以执行多个网站或服务的技术。虚拟主机之间完全独立，并可由用户自行管理，虚拟并非指不存在，而是指空间是由实体的服务器延伸而来，其硬件系统可以是基于服务器群，或者单个服务器。</p>
+</li>
+<li><p><strong>ISP</strong>（Internet Service Provider）：互联网服务提供商。</p>
+</li>
+<li><p><strong>NAT</strong>（Network Address Translation）：网络地址翻译，它的提出也完全是为解决IPv4地址短缺的问题，为IPV6的开发争取足够时间。在计算机网络中是一种在IP数据包通过路由器或防火墙时重写来源IP地址或目的IP地址的技术。这种技术被普遍使用在有多台主机但只通过一个公有IP地址访问互联网的私有网络中。</p>
 </li>
 </ul>
 
