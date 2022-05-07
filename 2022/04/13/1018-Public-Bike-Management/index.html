@@ -290,7 +290,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/map" style=color:#006674>
+                <a href="/tags/map" style=color:#016a99>
                     map
                 </a>
             </span>
@@ -304,22 +304,22 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/pair" style=color:#6484be>
+                <a href="/tags/Dijkstra" style=color:#016a99>
+                    Dijkstra
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/pair" style=color:#607d8b>
                     pair
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/vector" style=color:#607d8b>
+                <a href="/tags/vector" style=color:#016a99>
                     vector
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/Dijkstra" style=color:#6484be>
-                    Dijkstra
                 </a>
             </span>
             
@@ -439,7 +439,7 @@ int main()
                 track[d.first].clear();
                 dist[d.first] = dist[min_idx] + d.second;
             }
-              // 将min_idx的路径信息延续到d.first
+          // 将min_idx的路径信息延续到d.first
             // k不能是引用，会直接修改track[min_idx]
             for (auto k: track[min_idx])
             {
@@ -455,7 +455,7 @@ int main()
                 track[d.first].push_back(k);
             }
         }
-      // 此时min_idx的路径信息无用了可以清空以减少空间消耗
+      // 更新完后min_idx的路径信息可以清空以减少空间消耗
         track[min_idx].clear();
         min_dist = INF, min_idx = 0;
         for (int i = 1; i &lt; n + 1; ++i)
