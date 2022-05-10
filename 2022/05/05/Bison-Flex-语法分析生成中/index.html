@@ -373,7 +373,7 @@ int main()
 <li><p>每一个产生式的右部可能有好几种推导结果（由【｜】进行分隔），我们认为不同的右部代表着不同的产生式，而每一个产生式后面都可以跟相应的一系列操作【{…}】，表示发生这一个产生式的归约时会执行的相应动作</p>
 </li>
 <li><p>操作中我们可以用【<span>$</span>】来引用产生式中的每一个token以及终结符，其中【<span>$</span><span>$</span>】表示产生式左部的非终结符（冒号左边的非终结符），【$n】表示产生式右部第n个<strong>非终结符/token/字符串</strong>的值</p>
-<p>⚠️当【<span>$</span>n】是一个字符串时，Bison会提示这个【<span>$</span>n】没有声明类型，但不会影响程序的运行，当然你觉得难受的话可以直接将其替换成字符串的字面值</p>
+<p>⚠️当【<span>$</span>n】是一个字符串常量时，Bison会提示这个【<span>$</span>n】没有声明类型，但不会影响程序的运行，当然你觉得难受的话可以直接将其替换成字符串的字面值</p>
 </li>
 <li><p>产生式的右部是可以为空的，这就相当于文法中的空串<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="0.919ex" height="1ex" role="img" focusable="false" viewbox="0 -431 406 442"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D716" d="M227 -11Q149 -11 95 41T40 174Q40 262 87 322Q121 367 173 396T287 430Q289 431 329 431H367Q382 426 382 411Q382 385 341 385H325H312Q191 385 154 277L150 265H327Q340 256 340 246Q340 228 320 219H138V217Q128 187 128 143Q128 77 160 52T231 26Q258 26 284 36T326 57T343 68Q350 68 354 58T358 39Q358 36 357 35Q354 31 337 21T289 0T227 -11Z"/></g></g></g></svg></mjx-container></p>
 </li>

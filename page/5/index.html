@@ -280,6 +280,62 @@ mjx-container[display="true"] + br {
             
 
 <div class="post">
+    <a href="/2022/03/08/小记OpenGL/">
+        <h2>
+            「Section 0」小记OpenGL
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/计算机图形学">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                计算机图形学
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/8
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <ol>
+<li><p><code>glfwMakeContextCurrent(GLFWwindow *window)</code>：将窗口<code>window</code>设为当前上下文</p>
+<ul>
+<li>OpenGL可以认为是一个巨大的状态机。所谓状态机，是一个包含了许多当前属性（背景颜色、渲染模式）的集合（状态），里面的属性值直到下次修改前都不会改变。那么当内部属性发生改变时状态也随之而变，类似编译原理里面的自动机。</li>
+<li>上下文可以认为是OpenGL当前的状态，即当前执行操作的窗口，可以认为选择<code>window</code>作为当前画布。</li>
+</ul>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OpenGL" style=color:#006674>
+                OpenGL
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/03/08/小记OpenGL/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
     <a href="/2022/03/06/建立数据模型/">
         <h2>
             「Section 2」建立数据模型
@@ -328,7 +384,7 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/notes" style=color:#607d8b>
+            <a href="/tags/notes" style=color:#006674>
                 notes
             </a>
         </span>
@@ -386,7 +442,7 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/notes" style=color:#016a99>
+            <a href="/tags/notes" style=color:#006674>
                 notes
             </a>
         </span>
@@ -440,7 +496,7 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/notes" style=color:#006674>
+            <a href="/tags/notes" style=color:#016a99>
                 notes
             </a>
         </span>
@@ -492,87 +548,13 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/OpenGL" style=color:#607d8b>
+            <a href="/tags/OpenGL" style=color:#016a99>
                 OpenGL
             </a>
         </span>
         
     </div>
     <a href="/2022/03/03/OpenGL落脚CLion/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/03/03/1012-The-Best-Rank/">
-        <h2>
-            「1012」The Best Rank
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/3/3
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/problems/994805502658068480">➳ENTRY</a></p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>To evaluate the performance of our first year CS majored students, we consider their grades of three courses only: <code>C</code> - C Programming Language, <code>M</code> - Mathematics (Calculus or Linear Algrbra), and <code>E</code> - English. At the mean time, we encourage students by emphasizing on their best ranks – that is, among the four ranks with respect to the three courses and the average grade, we print the best rank for each student.</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>For example, The grades of <code>C</code>, <code>M</code>, <code>E</code> and <code>A</code> - Average of 4 students are given as the following:</p>
-<pre><code class="Text">StudentID  C  M  E  A
-310101     98 85 88 90
-310102     70 95 88 84
-310103     82 87 94 88
-310104     91 91 91 91
-</code></pre>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>Then the best ranks for all the students are No.1 since the 1st one has done the best in C Programming Language, while the 2nd one in Mathematics, the 3rd one in English, and the last one in average.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#006674>
-                C＋＋
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/map" style=color:#006674>
-                map
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/sort" style=color:#6484be>
-                sort
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/03/03/1012-The-Best-Rank/ " class="go-post">
         阅读全文
     </a>
 </div>
@@ -643,9 +625,9 @@ mjx-container[display="true"] + br {
 
             
             <span class="page-omit">...</span>
-            <a href="/page/8">
+            <a href="/page/9">
                 <span class="page-num">
-                    8
+                    9
                 </span>
             </a>
             
