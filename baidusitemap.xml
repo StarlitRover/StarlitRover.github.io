@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://starlitrover.xyz/2022/05/11/02-NFA2DFA/</loc>
+    <lastmod>2022-05-11</lastmod>
+  </url>
+  <url>
     <loc>https://starlitrover.xyz/2022/05/09/01-REG2NFA/</loc>
+    <lastmod>2022-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://starlitrover.xyz/2022/03/29/Naive-Bayes/</loc>
     <lastmod>2022-05-10</lastmod>
   </url>
   <url>
@@ -39,10 +47,6 @@
   <url>
     <loc>https://starlitrover.xyz/2022/03/08/Bezier-Curve/</loc>
     <lastmod>2022-04-01</lastmod>
-  </url>
-  <url>
-    <loc>https://starlitrover.xyz/2022/03/29/Naive-Bayes/</loc>
-    <lastmod>2022-03-30</lastmod>
   </url>
   <url>
     <loc>https://starlitrover.xyz/2022/03/23/%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F/</loc>

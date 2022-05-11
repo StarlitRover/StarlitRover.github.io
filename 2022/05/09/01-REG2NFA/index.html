@@ -283,14 +283,14 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/走码观花" style=color:#607d8b>
+                <a href="/tags/走码观花" style=color:#6484be>
                     走码观花
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/python" style=color:#006674>
+                <a href="/tags/python" style=color:#016a99>
                     python
                 </a>
             </span>
@@ -424,12 +424,12 @@ for i in range(len(rpn)):
         transitions.append([rpn[i], str(status), str(status + 1)])
         status += 2
     elif rpn[i] == '*':
-        transitions.append(['ε', crt_stt[-1][0], crt_stt[-1][1]])
-        transitions.append(['ε', crt_stt[-1][1], crt_stt[-1][0]])
+        transitions.append(['ε', str(crt_stt[-1][0]), str(crt_stt[-1][1])])
+        transitions.append(['ε', str(crt_stt[-1][1]), str(crt_stt[-1][0])])
     elif rpn[i] == '.':
         stt1 = crt_stt.pop()
         stt2 = crt_stt.pop()
-        transitions.append(['ε', stt2[1], stt1[0]])
+        transitions.append(['ε', str(stt2[1]), str(stt1[0])])
         crt_stt.append([stt2[0], stt1[1]])
     elif rpn[i] == '|':
         stt1 = crt_stt.pop()
@@ -462,8 +462,8 @@ NFA.get_graph().draw('REG2NFA.png', prog='dot')
 <br>
 
 <hr>
-<h2><span id="reference">「Reference」</span></h2><ul>
-<li><a href="(https://zh.wikipedia.org/w/index.php?title=%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E7%A4%BA%E6%B3%95&oldid=67874513)">逆波兰表示法</a>. (2021, September 24). Retrieved from 维基百科, 自由的百科全书</li>
+<h3><span id="reference">「Reference」</span></h3><ul>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E7%A4%BA%E6%B3%95&oldid=67874513">逆波兰表示法</a>. (2021, September 24). Retrieved from 维基百科, 自由的百科全书</li>
 </ul>
 
     </div>
