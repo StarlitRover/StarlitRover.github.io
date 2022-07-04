@@ -283,14 +283,14 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/走码观花" style=color:#016a99>
+                <a href="/tags/走码观花" style=color:#006674>
                     走码观花
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/python" style=color:#006674>
+                <a href="/tags/python" style=color:#016a99>
                     python
                 </a>
             </span>
@@ -385,7 +385,7 @@ for key in gen:
 </li>
 <li><p>由于相同字符开头的右部可能很分散，不太好直接找，因此我们在提取之前可以对一个产生式的右部先按照字符序进行排序</p>
 </li>
-<li><p>用<code>[k,kk)</code>来表示最大广度，<code>depth</code>是最大深度，<code>next_str</code>是下一个新产生式左部的名称（就是每次加一个【‘】）</p>
+<li><p>用<code>[k,kk)</code>来表示最大广度范围，<code>depth</code>是最大深度，<code>next_str</code>是下一个新产生式左部的名称（就是每次加一个【‘】）</p>
 </li>
 <li><p>注意有时其中一个右部本身就是左公因式的特殊情况，此时提取后的新产生式右部需要加上【ε】</p>
 </li>
