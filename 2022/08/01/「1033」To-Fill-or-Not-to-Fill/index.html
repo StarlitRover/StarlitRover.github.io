@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starlit Rover || 「1026」Table Tennis</title>
+    <title>Starlit Rover || 「1033」To Fill or Not to Fill</title>
     <meta name="author" content="Jammy Zeta">
     <meta name="description" content="Just stroll in the starlit firmament~ ">
     <meta name="keywords" content=" ">
@@ -253,14 +253,14 @@ mjx-container[display="true"] + br {
 <link rel="stylesheet" href="/css/post-body.css">
 <div class="article">
     <div>
-        <h1>「1026」Table Tennis </h1>
+        <h1>「1033」To Fill or Not to Fill </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/7/19
+            2022/8/1
         </span>
 
         
@@ -283,22 +283,22 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/C＋＋" style=color:#006674>
+                <a href="/tags/C＋＋" style=color:#016a99>
                     C＋＋
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/vector" style=color:#016a99>
+                <a href="/tags/vector" style=color:#6484be>
                     vector
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/min_element" style=color:#6484be>
-                    min_element
+                <a href="/tags/sort" style=color:#607d8b>
+                    sort
                 </a>
             </span>
             
@@ -307,164 +307,123 @@ mjx-container[display="true"] + br {
     </div>
 
     <div class="content" v-pre>
-        <p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/problems/994805472333250560">➳ENTRY</a></p>
-<p>A table tennis club has N tables available to the public. The tables are numbered from 1 to N. For any pair of players, if there are some tables open when they arrive, they will be assigned to the available table with the smallest number. If all the tables are occupied, they will have to wait in a queue. It is assumed that every pair of players can play for at most 2 hours.</p>
-<p>Your job is to count for everyone in queue their waiting time, and for each table the number of players it has served for the day.</p>
-<p>One thing that makes this procedure a bit complicated is that the club reserves some tables for their VIP members. When a VIP table is open, the first VIP pair in the queue will have the privilege to take it. However, if there is no VIP in the queue, the next pair of players can take it. On the other hand, if when it is the turn of a VIP pair, yet no VIP table is available, they can be assigned as any ordinary players.</p>
+        <p>With highways available, driving a car from Hangzhou to any other city is easy. But since the tank capacity of a car is limited, we have to find gas stations on the way from time to time. Different gas station may give different price. You are asked to carefully design the cheapest route to go.</p>
 <span id="more"></span>
 
-<h3><span id="input-specification">Input Specification:</span></h3><p>Each input file contains one test case. For each case, the first line contains an integer <code>N</code> (≤10000) - the total number of pairs of players. Then <code>N</code> lines follow, each contains 2 times and a VIP tag: <code>HH:MM:SS</code> - the arriving time, <code>P</code> - the playing time in minutes of a pair of players, and <code>tag</code> - which is 1 if they hold a VIP card, or 0 if not. It is guaranteed that the arriving time is between 08:00:00 and 21:00:00 while the club is open. It is assumed that no two customers arrives at the same time. Following the players’ info, there are 2 positive integers: <code>K</code> (≤100) - the number of tables, and <code>M</code> (&lt; K) - the number of VIP tables. The last line contains <code>M</code> table numbers.</p>
-<h3><span id="output-specification">Output Specification:</span></h3><p>For each test case, first print the arriving time, serving time and the waiting time for each pair of players in the format shown by the sample. Then print in a line the number of players served by each table. Notice that the output must be listed in chronological order of the serving time. The waiting time must be rounded up to an integer minute(s). If one cannot get a table before the closing time, their information must NOT be printed.</p>
-<h3><span id="sample-input">Sample Input:</span></h3><pre><code class="in">10
-20:52:00 10 0
-08:00:00 20 0
-08:02:00 30 0
-20:51:00 10 0
-08:10:00 30 0
-08:12:00 10 1
-20:40:00 13 0
-08:01:30 15 1
-20:53:00 10 1
-20:54:00 10 0
-3 1
-2
+<h3><span id="input-specification">Input Specification:</span></h3><p>Each input file contains one test case. For each case, the first line contains 4 positive numbers: Cmax​ (≤ 100), the maximum capacity of the tank; D (≤30000), the distance between Hangzhou and the destination city; Davg​ (≤20), the average distance per unit gas that the car can run; and N (≤ 500), the total number of gas stations. Then N lines follow, each contains a pair of non-negative numbers: Pi​, the unit gas price, and Di​ (≤D), the distance between this station and Hangzhou, for <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.439ex" xmlns="http://www.w3.org/2000/svg" width="11.979ex" height="1.984ex" role="img" focusable="false" viewbox="0 -683 5294.6 877"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mo" transform="translate(622.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/></g><g data-mml-node="mn" transform="translate(1678.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g><g data-mml-node="mo" transform="translate(2178.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"/></g><g data-mml-node="mo" transform="translate(2623.2,0)"><path data-c="22EF" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250ZM525 250Q525 274 542 292T585 310Q609 310 627 294T646 251Q646 226 629 208T586 190T543 207T525 250ZM972 250Q972 274 989 292T1032 310Q1056 310 1074 294T1093 251Q1093 226 1076 208T1033 190T990 207T972 250Z"/></g><g data-mml-node="mo" transform="translate(3961.9,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"/></g><g data-mml-node="mi" transform="translate(4406.6,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"/></g></g></g></svg></mjx-container>. All the numbers in a line are separated by a space.</p>
+<h3><span id="output-specification">Output Specification:</span></h3><p>For each test case, print the cheapest price in a line, accurate up to 2 decimal places. It is assumed that the tank is empty at the beginning. If it is impossible to reach the destination, print <code>The maximum travel distance = X</code> where <code>X</code> is the maximum possible distance the car can run, accurate up to 2 decimal places.</p>
+<h3><span id="sample-input-1">Sample Input 1:</span></h3><pre><code class="in">50 1300 12 8
+6.00 1250
+7.00 600
+7.00 150
+7.10 0
+7.20 200
+7.50 400
+7.30 1000
+6.85 300
 </code></pre>
-<h3><span id="sample-output">Sample Output:</span></h3><pre><code class="out">08:00:00 08:00:00 0
-08:01:30 08:01:30 0
-08:02:00 08:02:00 0
-08:12:00 08:16:30 5
-08:10:00 08:20:00 10
-20:40:00 20:40:00 0
-20:51:00 20:51:00 0
-20:52:00 20:52:00 0
-20:53:00 20:53:00 0
-4 3 2
+<h3><span id="sample-output-1">Sample Output 1:</span></h3><pre><code class="out">749.17
+</code></pre>
+<h3><span id="sample-input-2">Sample Input 2:</span></h3><pre><code>50 1300 12 2
+7.10 0
+7.00 600
+</code></pre>
+<h3><span id="sample-output-2">Sample Output 2:</span></h3><pre><code>The maximum travel distance = 1200.00
 </code></pre>
 <hr>
-<h2><span id="ω">Ω</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>麻了，这题目又让我觉得自己是个复健病人，踩坑达人是我没错了，脑子像被包子塞住了一样。。。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>不耐烦的极简翻译，一家乒乓球馆里面有好几张球桌，每一对玩家到达时会自动选择编号最小的空闲球桌，没有空闲球桌时只能排队等候，你以为这就结束了吗？哈哈我们还有VIP机制，没想到吧，有几张球桌被指定为VIP球桌，当这些球桌空闲时队伍中的VIP用户可省去枯燥无味的排队直接开打（咳咳，当然普通用户在用VIP球桌时不能把人家赶走）。当然在没有VIP用户时可以提供给普通用户，VIP用户在没有VIP球桌时也可以用普通球桌。一对玩家最长只能玩2h，怎么样，心动了吗，赶紧拨打VIP热线（打住</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>烦躁的夏日，鸡血的蝉鸣，长的跟催眠符一样的题目，看到最后一句已经忘了前面的条件，又不是一个善茬。条件多了，理清情况就需要一点时间。我们可以码球桌，给每个球桌设置一条时间线，考虑最先空闲下来的球桌：如果是一张VIP球桌，我们就必须瞅瞅队伍里有没有VIP，没有就可以把它当普通球桌处理；对于普通球桌，则直接分配给队伍中的第一对玩家。第一个坑点已悄然出现，对于VIP用户会优先选择编号最小的VIP球桌（还挺有优越感哈）。因此在分配球桌时，如果是VIP用户，我们需要瞅瞅有没有空的VIP球桌。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>这种地雷题，真就摸黑踩雷，我梳理了以下几个雷点：</p>
+<h2><span id="ω">Ω</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>终于见到需要动点脑子的题目了（然而脑子已生锈。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>一条直线上有多个加油站，每个加油站的油价不同，给出四元组（最大油量，总路程长度，单位油耗能跑的里程数，加油站个数），以及每个加油站距离起点的距离和油价，计算到达终点时所需的最便宜总油费，若无法到达则输出最远里程。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>本质上是考虑到达每一个加油站时做出是否加油的决策，如果要加则加多少。</p>
 <ol>
-<li><p>输入最后一行中的M个数是VIP球桌编号，一开始看了半天</p>
+<li><p>问题❶：加不加。很显然，如果我们能开到前面一个油价更便宜的加油站就可以不加，但如果我们前面能开到的加油站油价都比当前这家高，那没办法我们必须加。</p>
 </li>
-<li><p>VIP用户优先选择编号最小的VIP球桌，即使有编号更小的普通球桌</p>
-</li>
-<li><p>21:00来玩的玩家不提供服务（不能输出）</p>
-</li>
-<li><p>一对玩家最多只能玩两小时，超过两小时按两小时算</p>
-</li>
-<li><p>如果玩家来的时候很多球桌都是空闲的，此时不能分配最早空闲的球桌（对该玩家来说没有意义），而是需要把这些球桌的时间线都拉到玩家到达的时间</p>
-</li>
-<li><p>按照提供服务的时间顺序输出用户记录（VIP可以晚到早玩）</p>
-</li>
-<li><p>最后的等待时间需要按分钟四舍五入（≥ 30s 入，&lt; 30s 舍）</p>
+<li><p>问题❷：加多少。很显然，如果在加满油的里程范围内有一家油价更低的加油站，那么我们只要加到能够达到这家加油站的油量即可。另外我们找的不是里程范围内油价最低的那家P，而是第一家油价比当前油站K低的油站Q，否则QP（P比Q远）路程所付的油价就不划算了。</p>
 </li>
 </ol>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>如果上述雷都心知肚明，秒这玩意轻轻松松吧～</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>看透本质后一切都明了了起来，我们首先对得到的油站信息根据到起点的距离进行排序，然后依次便利所有油站，即对每个油站都进行是否加油的决策。根据当前油量计算可行驶里程，在该里程范围中寻找油价更低的油站，若有则不加油。若加油则在加满油的里程范围内寻找第一家油价更低的油站，找到后计算到当该油站还差多少油，根据结果加油付费。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container><big>弥天大坑</big>：第一个油站如果不在起点，汽车开局就嗝屁了，最大里程：0。（case 2）</p>
 <hr>
 <h2><span id="c-d-e">C ☺ D E</span></h2><pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;algorithm&gt;
 
 using namespace std;
-
-class customer
-{
-public:
-    bool isVIP = false, isAssigned = false;
-    int arrival;
-    int playing;
-    int serving;
-};
-
-inline void printRecord(customer &amp;c)
-{
-    int a = c.arrival, s = c.serving, w = s - a;
-    printf("%02d:%02d:%02d ", a / 3600, (a % 3600) / 60, a % 60);
-    printf("%02d:%02d:%02d ", s / 3600, (s % 3600) / 60, s % 60);
-    // 四舍五入
-    printf("%d\n", w / 60 + ((w % 60 &lt; 30) ? 0 : 1));
-}
+typedef pair&lt;double, double&gt; pdd;
 
 int main()
 {
-    int n, h, m, s;
-    cin &gt;&gt; n;
-    vector&lt;customer&gt; cus(n);
-    for (int i = 0; i &lt; n; ++i)
+    int t, d, da, n;
+    double gas = 0, price = 0;
+    cin &gt;&gt; t &gt;&gt; d &gt;&gt; da &gt;&gt; n;
+    vector&lt;pdd&gt; stations(n);
+    for (auto &amp;k: stations)
+        cin &gt;&gt; k.second &gt;&gt; k.first;
+    stations.emplace_back(d, 0);
+    sort(stations.begin(), stations.end(), [](pdd &amp;a, pdd &amp;b) { return a.first &lt; b.first; });
+    // ！！！
+    if (stations[0].first != 0)
     {
-        scanf("%d:%d:%d", &amp;h, &amp;m, &amp;s);
-        cus[i].arrival = h * 3600 + m * 60 + s;
-        cin &gt;&gt; cus[i].playing &gt;&gt; cus[i].isVIP;
-        // playing time &lt;= 2h
-        cus[i].playing = (cus[i].playing &gt; 120) ? 7200 : cus[i].playing * 60;
-    }
-    // 需要先按到达时间进行排序
-    sort(cus.begin(), cus.end(), [](customer &amp;a, customer &amp;b) { return a.arrival &lt; b.arrival; });
-    int table, vip, v;
-    cin &gt;&gt; table &gt;&gt; vip;
-    vector&lt;int&gt; time(table, 28800), total(table, 0), list;
-    vector&lt;bool&gt; isVIP(table, false);
-    for (int i = 0; i &lt; vip; ++i)
-    {
-        cin &gt;&gt; v;
-        isVIP[v - 1] = true;
+        printf("The maximum travel distance = 0.00");
+        return 0;
     }
     for (int i = 0; i &lt; n; ++i)
     {
-        if (cus[i].isAssigned) continue;
-        // 将时间线都拉到玩家到达的时间
-        for (int j = 0; j &lt; table; ++j)
-            if (time[j] &lt; cus[i].arrival)
-                time[j] = cus[i].arrival;
-        auto crt = min_element(time.begin(), time.end());
-        //【&gt;=】21：00不提供服务
-        if (*crt &gt;= 21 * 3600) break;
-        // VIP球桌需查找【之前】最早到达的VIP用户
-        if (isVIP[crt - time.begin()])
+        double crt_d = stations[i].first, gas_d = crt_d + gas * da;
+        int k = i + 1;
+        bool flag = false;
+        while (k &lt; (n + 1) &amp;&amp; stations[k].first &lt;= gas_d)
         {
-            int j = i;
-            bool flag = false;
-            // j &lt; n !!!
-            while (j &lt; n &amp;&amp; cus[j].arrival &lt;= *crt)
+            if (stations[k].second &lt; price)
             {
-                if (cus[j].isVIP &amp;&amp; !cus[j].isAssigned)
-                {
-                    cus[j].serving = *crt;
-                    *crt += cus[j].playing;
-                    cus[j].isAssigned = flag = true;
-                    list.push_back(j);
-                    total[crt - time.begin()] += 1;
-                    // 别忘当前普通玩家还在排队！
-                    i -= 1;
-                    break;
-                }
-                ++j;
+                flag = true;
+                break;
             }
-            if (flag) continue;
+            ++k;
         }
-        // VIP用户优先选择VIP球桌
-        if (cus[i].isVIP)
-            for (int k = 0; k &lt; table; ++k)
-                if (time[k] == *crt &amp;&amp; isVIP[k])
+        if (!flag)
+        {
+            int idx = i;
+            while (k &lt; (n + 1) &amp;&amp; stations[k].first &lt;= crt_d + t * da)
+            {
+                flag = true;
+                if (stations[k].second &lt; stations[idx].second)
                 {
-                    crt = time.begin() + k;
+                    idx = k;
                     break;
                 }
-        cus[i].serving = *crt;
-        *crt += cus[i].playing;
-        total[crt - time.begin()] += 1;
-        cus[i].isAssigned = true;
-        list.push_back(i);
+                ++k;
+            }
+            if (!flag)
+            {
+                printf("The maximum travel distance = %.2lf", crt_d + t * da);
+                return 0;
+            }
+            else if (idx == i)
+            {
+                price += (t - gas) * stations[i].second;
+                gas = t;
+            }
+            else
+            {
+                gas += (stations[idx].first - gas_d) / da;
+                price += (stations[idx].first - gas_d) / da * stations[i].second;
+            }
+        }
+        gas -= (stations[i + 1].first - crt_d) / da;
     }
-    for (auto &amp;k: list)
-        printRecord(cus[k]);
-    cout &lt;&lt; total[0];
-    for (int i = 1; i &lt; table; ++i)
-        cout &lt;&lt; " " &lt;&lt; total[i];
+    printf("%.2lf", price);
 }
 </code></pre>
+<h3><span id="tips">Tips</span></h3><ol>
+<li><p>在油站向量<code>stations</code>的最后加入了终点作为一个虚油站，方便最后一个油站的决策</p>
+</li>
+<li><p>crt_d表示当前里程，gas_d表示当前油量最大里程</p>
+</li>
+<li><p>flag二次利用，第二次是检验当前站点加满油后能否行驶到下一个站点</p>
+</li>
+<li><p>每次循环的结束都将行驶到下一个站点的油量进行扣除</p>
+</li>
+</ol>
 
     </div>
 
