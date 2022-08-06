@@ -333,7 +333,7 @@ a {
   border-radius: 5px;
   line-height: 25px;
   padding: 5px;
-  margin: 0 7px;
+  margin: 0 0px;
 }
 #home-posts .page-current .page-num:hover {
   background: #fff;
