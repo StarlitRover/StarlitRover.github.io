@@ -283,14 +283,14 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/C＋＋" style=color:#607d8b>
+                <a href="/tags/C＋＋" style=color:#016a99>
                     C＋＋
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/binary-search" style=color:#006674>
+                <a href="/tags/binary-search" style=color:#016a99>
                     binary search
                 </a>
             </span>
@@ -304,7 +304,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/vector" style=color:#016a99>
+                <a href="/tags/vector" style=color:#006674>
                     vector
                 </a>
             </span>
@@ -326,10 +326,10 @@ mjx-container[display="true"] + br {
 <hr>
 <h2><span id="ω">Ω</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>有点意思，给出几个长度不一的数字切片，希望你重组为一个最小的数。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>刚开始没想到贪心算法，总是想着全部读入然后构建一棵排序树，但处理起来总是相对麻烦。后来突然灵光一现，完全可以一边读入一边排序，找到适当的位置插入后成为当前最小的数字，这是很经典的贪心算法。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>那么如何证明这个贪心算法得出的结果一定是题目所求呢。我们只需证明每一次的最优解能通过排序插入的方式找到下一次的最优解即可。如果对于一个最小排列，我们随机从中抽走一个切片后的结果不是最小排列，那么我们一定能够将抽走的切片与剩余切片的最小排列构造出一个新排列比原排列更小，矛盾。这说明所有最小排列都可拆分成一个切片和另一个最小排列，从而归纳证明了贪心的正确性。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>那么如何证明这个贪心算法得出的结果一定是题目所求呢。我们只需证明每一次的最优解能通过排序插入的方式找到下一次的最优解即可。如果对于一个最小排列，我们随机从中抽走一个切片后的结果不是最小排列，那么我们一定能够将抽走的切片与剩余切片的最小排列构造出一个比原排列更小的新排列，矛盾。这说明所有最小排列都可拆分成一个切片和另一个最小排列，从而归纳证明了贪心的正确性。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>排序插入的流程是从当前最左边的切片开始比较放置在前面和后面的大小，若放置在前面更小则停止比较并将其插入到该切片的前面，否则继续与下一个切片进行比较。之所以可以这么比较是因为当前的切片序列也是有序的，而这种比较方式类似于冒泡排序。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>众所周知，排序冒泡在排列逆序数据时会耗时巨大，这也导致最后一个测试点无法通过。由于是在有序切片内进行插入，因此可以采取二分的方式。但更为简便的方式是采用&lt;algorithm&gt;库中的sort函数，指定cmp函数为<code>return a+b&lt;b+a;</code>。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>最后需要找到第一个非零数字，注意前面的0不要输出，另外别忘了结果0。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>最后需要找到第一个非零数字，注意前面的0不要输出，另外别忘了全0大坑。</p>
 <hr>
 <h2><span id="c-d-e">C ☺ D E</span></h2><h3><span id="二分法">➢ 二分法</span></h3><pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
