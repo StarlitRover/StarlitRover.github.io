@@ -264,7 +264,38 @@ mjx-container[display="true"] + br {
         </span>
 
         
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
 
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/C＋＋" style=color:#607d8b>
+                    C＋＋
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/动态规划" style=color:#016a99>
+                    动态规划
+                </a>
+            </span>
+            
+        </span>
         
     </div>
 
@@ -301,7 +332,7 @@ mjx-container[display="true"] + br {
 <h2><span id="ω">Ω</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>最近怎么全是Mars的题目，妈妈再也不用担心我在老家找工作啦。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>火星人喜欢用一串钻石来付钱，上面每颗钻石的价值不一，而且只能用其中连续的一小串来付。给定这一串钻石的价值和需要付费的商品价格，输出所有损失最小的钻石子串，题目保证钻石总价值&gt;商品价格，拒绝吃霸王餐，难得有原则的题目，点赞。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>很显然的一个想法，从每一颗钻石开始往后遍历，找到钻石总价值刚好≥商品价值的end index，计算（钻石总价-商品价值），与全局最小值进行比较，若更小则替换原先序列；若相等则添加至当前序列尾部。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>However，你很快会发现，这里面其实有着大量的重复计算，尤其是相邻的起始钻石所引导的序列之间会有很大一部分重合。简化的方式也非常简单，在for循环遍历中不必改变end index，因为下一个起始钻石的end index只会比当前大而不会小。我们只需要在进入下一次循环前将该轮钻石总价减去当前起始钻石的价值即可，这样也无需重复计算中间钻石，相当于整个过程每个钻石价值只会加一次。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>However，你很快会发现，这里面其实有着大量的重复计算，尤其是相邻的起始钻石所引导的序列之间会有很大一部分重合。简化的方式也非常简单，在for循环遍历中不必改变end index，因为下一个起始钻石的end index只会比当前大而不会小。我们只需要在进入下一次循环前将该轮钻石总价减去当前起始钻石的价值即可，这样就无需重复计算中间钻石，相当于整个过程每个钻石价值只会加一次。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>一旦发现即使把后面的钻石都加上也无法达到商品价格，那么就可以直接break。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>另外需要提防价值为0的石头钻石。</p>
 <hr>
