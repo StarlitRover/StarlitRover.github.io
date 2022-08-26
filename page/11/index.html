@@ -280,6 +280,59 @@ mjx-container[display="true"] + br {
             
 
 <div class="post">
+    <a href="/2022/03/14/定点运算器/">
+        <h2>
+            「Section 5」定点运算器（&浮点加减）
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/计算机组成原理">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                计算机组成原理
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/14
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>由前几节的内容我们知道计算机中的各类算术运算都可以由最基本的定点加法与移位运算迭代实现，那么我们只要将逻辑运算、移位运算、各种算术运算的数字逻辑电路实现集成在一起就可以构成CPU中的运算器。运算器具体可以分为<mark>定点运算部件和浮点运算部件</mark>，本节主要介绍又称为算术逻辑运算单元的<strong>定点运算部件</strong>。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="6.787ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 3000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g><g data-mml-node="mstyle" transform="translate(2000,0)"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>α. <a href="#1">定点运算器</a></p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="6.787ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 3000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g><g data-mml-node="mstyle" transform="translate(2000,0)"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>β. <a href="#2">浮点数的加减运算</a></p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/notes" style=color:#607d8b>
+                notes
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/03/14/定点运算器/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
     <a href="/2022/03/12/1013-Battle-Over-Cities/">
         <h2>
             「1013」Battle Over Cities
@@ -321,7 +374,7 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/C＋＋" style=color:#006674>
+            <a href="/tags/C＋＋" style=color:#607d8b>
                 C＋＋
             </a>
         </span>
@@ -393,7 +446,7 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/notes" style=color:#006674>
+            <a href="/tags/notes" style=color:#016a99>
                 notes
             </a>
         </span>
@@ -450,7 +503,7 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/notes" style=color:#607d8b>
+            <a href="/tags/notes" style=color:#006674>
                 notes
             </a>
         </span>
@@ -502,76 +555,20 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/走码观花" style=color:#607d8b>
+            <a href="/tags/走码观花" style=color:#016a99>
                 走码观花
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/OpenGL" style=color:#6484be>
+            <a href="/tags/OpenGL" style=color:#016a99>
                 OpenGL
             </a>
         </span>
         
     </div>
     <a href="/2022/03/08/Bezier-Curve/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/03/08/小记OpenGL/">
-        <h2>
-            「Section 0」小记OpenGL
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/计算机图形学">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                计算机图形学
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/3/8
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <ol>
-<li><p><code>glfwMakeContextCurrent(GLFWwindow *window)</code>：将窗口<code>window</code>设为当前上下文</p>
-<ul>
-<li>OpenGL可以认为是一个巨大的状态机。所谓状态机，是一个包含了许多当前属性（背景颜色、渲染模式）的集合（状态），里面的属性值直到下次修改前都不会改变。那么当内部属性发生改变时状态也随之而变，类似编译原理里面的自动机。</li>
-<li>上下文可以认为是OpenGL当前的状态，即当前执行操作的窗口，可以认为选择<code>window</code>作为当前画布。</li>
-</ul>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/OpenGL" style=color:#006674>
-                OpenGL
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/03/08/小记OpenGL/ " class="go-post">
         阅读全文
     </a>
 </div>
@@ -639,9 +636,9 @@ mjx-container[display="true"] + br {
             
             
             <span class="page-omit">...</span>
-            <a href="/page/15">
+            <a href="/page/16">
                 <span class="page-num">
-                    15
+                    16
                 </span>
             </a>
             
