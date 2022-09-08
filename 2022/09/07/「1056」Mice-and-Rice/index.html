@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/C＋＋" style=color:#607d8b>
+                <a href="/tags/C＋＋" style=color:#016a99>
                     C＋＋
                 </a>
             </span>
@@ -374,6 +374,8 @@ int main()
         cout &lt;&lt; (i == 0 ? "" : " ") &lt;&lt; rank[i];
 }
 </code></pre>
+<hr>
+<h2><span id="tips">Tips</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>你可能会对<code>r = r == 2 ? 1 : (r - 2) / ng + 2;</code>感到疑惑，为什么需要对2单独设置一种情况。经过上面的讲解，你会知道后面那个式子计算的就是下一轮输家的名次，那么我们把2代入会发现结果还是2，2似乎是一个不动点，那么为什么无法计算出排名1的结果呢？首先r是该轮输家的名次，那么下一轮很显然就只有一个人参赛了。我们计算下一轮输家名次的思路很简单，就是计算比赛组数+1，注意到这个名次就是通过排除掉所有赢家才计算出来给输家的。然而一个人的比赛中那个人既是赢家也是输家，所以计算出来的名次2根本不会落到他头上，也就毫无意义。这是一个挺有意思的逻辑悖论。</p>
 
     </div>
 
