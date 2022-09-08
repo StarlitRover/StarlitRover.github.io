@@ -283,21 +283,21 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/C＋＋" style=color:#006674>
+                <a href="/tags/C＋＋" style=color:#6484be>
                     C＋＋
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/binary-search" style=color:#607d8b>
+                <a href="/tags/binary-search" style=color:#016a99>
                     binary search
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/stack" style=color:#006674>
+                <a href="/tags/stack" style=color:#6484be>
                     stack
                 </a>
             </span>
@@ -409,7 +409,7 @@ int main()
 }
 </code></pre>
 <hr>
-<h2><span id="tips">Tips</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>两次二分搜索还是有点差异的，Pop时你可以确定存在该元素，只要<code>order[mid]==value</code>    即可退出循环，而Push时我们寻找的是插入该元素的位置，退出循环的时候mid和lleft最多差1（left &lt; right - 1为防止right=left+1 &amp;&amp; mid==left时而无限循环），此时order[mid]既有可能==m，也有可能&lt;m，后者不能直接插入，因此引入一个fix对位置进行修正。</p>
+<h2><span id="tips">Tips</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>两次二分搜索还是有点差异的，Pop时你可以确定存在该元素，只要<code>order[mid]==value</code>    即可退出循环，而Push时我们寻找的是插入该元素的位置，退出循环的时候right和lleft最多差1（left &lt; right - 1为防止right=left+1 &amp;&amp; mid==left时而无限循环），此时order[mid]既有可能==m，也有可能&lt;m，后者不能直接插入，因此引入一个fix对位置进行修正。</p>
 
     </div>
 
