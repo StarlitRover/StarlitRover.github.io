@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://starlitrover.xyz/2022/09/21/%E3%80%8C1063%E3%80%8DSet-Similarity/</loc>
+    
+    <lastmod>2022-09-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://starlitrover.xyz/2022/09/21/%E3%80%8C1062%E3%80%8DTalent-and-Virtue/</loc>
     
     <lastmod>2022-09-21</lastmod>
@@ -896,20 +905,6 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/map/</loc>
-    <lastmod>2022-09-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://starlitrover.xyz/tags/binary-search/</loc>
-    <lastmod>2022-09-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://starlitrover.xyz/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -917,7 +912,7 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/sort/</loc>
+    <loc>https://starlitrover.xyz/tags/map/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -945,14 +940,14 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/prime/</loc>
+    <loc>https://starlitrover.xyz/tags/sort/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/Dijkstra/</loc>
+    <loc>https://starlitrover.xyz/tags/prime/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -973,7 +968,14 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/</loc>
+    <loc>https://starlitrover.xyz/tags/binary-search/</loc>
+    <lastmod>2022-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://starlitrover.xyz/tags/Dijkstra/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -987,7 +989,7 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/ANN/</loc>
+    <loc>https://starlitrover.xyz/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -995,6 +997,13 @@
   
   <url>
     <loc>https://starlitrover.xyz/tags/arm64/</loc>
+    <lastmod>2022-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://starlitrover.xyz/tags/ANN/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1129,14 +1138,14 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/categories/Machine-Learning/</loc>
+    <loc>https://starlitrover.xyz/categories/%E8%A1%80%E6%B3%AA%E5%8F%B2/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/categories/%E8%A1%80%E6%B3%AA%E5%8F%B2/</loc>
+    <loc>https://starlitrover.xyz/categories/Machine-Learning/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
