@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/arm64" style=color:#607d8b>
+                <a href="/tags/arm64" style=color:#016a99>
                     arm64
                 </a>
             </span>
@@ -352,11 +352,11 @@ cd buildir
 </li>
 <li><p>接下来开启所有进程进行编译</p>
 <pre><code class="zsh">#在buildir目录下
-make -j$(nprocs)
+make -j$(nproc)
 </code></pre>
 </li>
 <li><p>上步完成后开始安装</p>
-<pre><code class="zsh">make install -j$(nprocs)
+<pre><code class="zsh">make install -j$(nproc)
 </code></pre>
 </li>
 <li><p>安装完成后可以把和buildir同层目录内的<strong>qt-everywhere-src-5.15.2.tar.xz</strong>与<strong>qt-everywhere-src-5.15.2</strong>给删了</p>
