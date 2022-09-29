@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starlit Rover || Build Qt in arm64</title>
+    <title>Starlit Rover || 「1070」Mooncake</title>
     <meta name="author" content="Jammy Zeta">
     <meta name="description" content="Just stroll in the starlit firmament~ ">
     <meta name="keywords" content=" ">
@@ -253,23 +253,23 @@ mjx-container[display="true"] + br {
 <link rel="stylesheet" href="/css/post-body.css">
 <div class="article">
     <div>
-        <h1>Build Qt in arm64 </h1>
+        <h1>「1070」Mooncake </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/3/19
+            2022/9/29
         </span>
 
         
         <span class="category">
-            <a href="/categories/血泪史">
+            <a href="/categories/PAT（Advanced-Level）Practice">
                 <span class="icon">
                     <a-icon type="book" theme="filled" />
                 </span>
-                血泪史
+                PAT（Advanced Level）Practice
             </a>
         </span>
         
@@ -283,8 +283,15 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/arm64" style=color:#006674>
-                    arm64
+                <a href="/tags/C＋＋" style=color:#6484be>
+                    C＋＋
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/tuple" style=color:#006674>
+                    tuple
                 </a>
             </span>
             
@@ -293,101 +300,55 @@ mjx-container[display="true"] + br {
     </div>
 
     <div class="content" v-pre>
-        <h2><span id="︎-引言">♿︎ 引言</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>自从电脑换成Mac后就需要面对芯片架构不同带来的众多问题，市场上还是有很多软件只适配x86而不支持arm。当然这段时间我体验下来，arm架构采用的是精简指令集，在续航方面全面吊打x86，一般来说不插电工作一天绰绰有余。当然缺点也很明显，就是软件市场依然不是很友好，比如说VS（坦白地说，VS for mac就是微软做出来嘲笑苹果的）。虽然很多软件表示已经在开发arm版，但还是需要一定时间的。这也是本文存在的原因。</p>
+        <p>Mooncake is a Chinese bakery product traditionally eaten during the Mid-Autumn Festival. Many types of fillings and crusts can be found in traditional mooncakes according to the region’s culture. Now given the inventory amounts and the prices of all kinds of the mooncakes, together with the maximum total demand of the market, you are supposed to tell the maximum profit that can be made.</p>
+<p>Note: partial inventory storage can be taken. The sample shows the following situation: given three kinds of mooncakes with inventory amounts being 180, 150, and 100 thousand tons, and the prices being 7.5, 7.2, and 4.5 billion yuans. If the market demand can be at most 200 thousand tons, the best we can do is to sell 150 thousand tons of the second kind of mooncake, and 50 thousand tons of the third kind. Hence the total profit is 7.2 + 4.5/2 = 9.45 (billion yuans).</p>
 <span id="more"></span>
 
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>导师那边有个框架之前我都是在老电脑的VS上用的（之前也只有VS版），然而最近发布的新版本使用了<strong>CMake</strong>。众所周知，<strong>CMake</strong>是一款跨平台编译工具，像<strong>CLion</strong>就是使用<strong>CMake</strong>进行编译的。Mac人狂喜，然而被学长告知框架所需的Qt目前只支持x86，arm版的需要自己编译。可以自己编译的关键一点是，Qt是开源的，我们可以获得其源码。那么简单地来说，虽然直接下载下来的Qt是x86版的，但只要将其源码在自己电脑编译一遍，生成的就是适配自己电脑的版本啦。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>这就不得不提到<code>makefile</code>文件。该文件是Linux下的一个工程管理文件，类似CMake文件，指出了如何编译软件的规则，有着自己专门的语法。但我目前也不是很了解，只是刚刚入门，以后有机会的话再讲吧。</p>
+<h3><span id="input-specification">Input Specification:</span></h3><p>Each input file contains one test case. For each case, the first line contains 2 positive integers N (≤1000), the number of different kinds of mooncakes, and D (≤500 thousand tons), the maximum total demand of the market. Then the second line gives the positive inventory amounts (in thousand tons), and the third line gives the positive prices (in billion yuans) of N kinds of mooncakes. All the numbers in a line are separated by a space.</p>
+<h3><span id="output-specification">Output Specification:</span></h3><p>For each test case, print the maximum profit (in billion yuans) in one line, accurate up to 2 decimal places.</p>
+<h3><span id="sample-input">Sample Input:</span></h3><pre><code class="in">3 200
+180 150 100
+7.5 7.2 4.5
+</code></pre>
+<h3><span id="sample-output">Sample Output:</span></h3><pre><code class="out">9.45
+</code></pre>
 <hr>
-<h3><span id="版本信息">版本信息</span></h3><ul>
-<li><strong>Qt 5.15.2</strong></li>
-<li><strong>CLion 2021.3.4</strong></li>
-<li><strong>MacOS Monterey 12.3</strong></li>
-</ul>
+<h2><span id="ω">Ω</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>如何卖月饼能获利最大，月饼可以拆分，简化版背包问题。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>由于市场需求是固定的，因此先计算单价，然后将月饼按单价排序，依次卖出，直到卖出总量达到市场需求为止。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>只是没想到水题里面还暗藏水雷，测试点2一直过不去实在令人狂躁抓头。原来。。月饼库存说的是positive inventory amounts，没说过整数哦，样例中的整数只是特殊情况而已啦，你自己要说是整数我也没有办法诶。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>PTA的misdirection一直是有一套的。</p>
 <hr>
-<h2><span id="build">⩙ BUILD</span></h2><ol>
-<li><p>打开terminal，使用homebrew（默认已有）安装依赖项</p>
-<pre><code class="zsh">brew install pcre2 harfbuzz freetype
-#下面这一项可能不需要，保险起见就安上
-brew install cmake ninja python
-</code></pre>
-</li>
-<li><p>下载<strong>Qt 5.15.2</strong>的源码，通道<a target="_blank" rel="noopener" href="https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz">在此</a></p>
-</li>
-<li><p>假设下载的压缩包<strong>qt-everywhere-src-5.15.2.tar.xz</strong>所在文件夹的绝对路径为<code>path</code>，在terminal内</p>
-<pre><code class="zsh">cd path
-#解压压缩包
-x qt-everywhere-src-5.15.2.tar.xz
-#创建文件夹buildir
-mkdir buildir
-cd buildir
-#设置arm64版编译并生成makefile
-../qt-everywhere-src-5.15.2/configure -release -prefix ./outDir -nomake examples -nomake tests QMAKE_APPLE_DEVICE_ARCHS=arm64 -opensource -confirm-license -skip qt3d -skip qtwebengine
-#接下来会生成很多命令，不用管
-</code></pre>
-</li>
-<li><p>在<code>make</code>命令之前我们需要消除两个问题（当然直接打开文件改也行，下面是在terminal中用vim修改）</p>
-<ul>
-<li><p>首先打开第一个更改文件，path是上面那个绝对路径</p>
-<pre><code class="zsh">vim path/qt-everywhere-src-5.15.2/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
-</code></pre>
-<p>找到下面的语句块</p>
-<pre><code class="c++">#include &lt;qpa/qplatformgraphicsbuffer.h&gt;
-#include &lt;private/qcore_mac_p.h&gt;
-</code></pre>
-<p>进入vim的插入模式，在该语句块前加上</p>
-<pre><code class="c++">#include &lt;CoreGraphics/CGColorSpace.h&gt;
-</code></pre>
-<p>最后应该是这样子的</p>
-<img src="/images/血泪史/1/1.png" style="zoom:60%;">
+<h2><span id>🐎</span></h2><pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;tuple&gt;
+#include &lt;algorithm&gt;
 
-<p>改完后保存退出：esc+输入<code>:wq</code></p>
-</li>
-<li><p>打开第二个更改文件</p>
-<pre><code class="zsh">vim path/qt-everywhere-src-5.15.2/qtlocation/include/QtLocation/5.15.2/QtLocation/private/../../../../../src/location/declarativemaps/qdeclarativepolylinemapitem_p_p.h
-</code></pre>
-<p>输入<code>:set number</code>后显示行号，然后将523行处的<code>typedef struct {</code>改为<code>typedef struct MapPolylineEntry {</code>，改完后保存退出</p>
-</li>
-</ul>
-</li>
-<li><p>接下来开启所有进程进行编译</p>
-<pre><code class="zsh">#在buildir目录下
-make -j$(nproc)
-</code></pre>
-</li>
-<li><p>上步完成后开始安装</p>
-<pre><code class="zsh">make install -j$(nproc)
-</code></pre>
-</li>
-<li><p>安装完成后可以把和buildir同层目录内的<strong>qt-everywhere-src-5.15.2.tar.xz</strong>与<strong>qt-everywhere-src-5.15.2</strong>给删了</p>
-</li>
-<li><p>此时arm64版Qt算是安装完成（buildir），接下来（可以忽略）是在CLion上的iGameMeshView工程中使用Qt</p>
-</li>
-<li><p>修改iGameMeshView的cmake文件</p>
-<pre><code class="CMake"># MacOS
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
-    message(STATUS "编译器是AppleClang")
-    #设置QT的目录
-    set(Qt5Core_DIR path/buildir/outDir/lib/cmake/Qt5Core)
-    set(Qt5Gui_DIR path/buildir/outDir/lib/cmake/Qt5Gui)
-    set(Qt5OpenGL_DIR path/buildir/outDir/lib/cmake/Qt5OpenGL)
-    set(Qt5Widgets_DIR path/buildir/outDir/lib/cmake/Qt5Widgets)
-</code></pre>
-</li>
-<li><p>完成</p>
-</li>
-</ol>
-<hr>
-<h3><span id="reference">「Reference」</span></h3><ul>
-<li><p>Qt5适配M1：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wqcwood/p/15138983.html">https://www.cnblogs.com/wqcwood/p/15138983.html</a></p>
-</li>
-<li><p>[Qt] Fix missing Cocoa include：<a target="_blank" rel="noopener" href="https://github.com/microsoft/vcpkg/pull/21056/commits/99582d154236b0e7af70cadef8420c4f25829f61">https://github.com/microsoft/vcpkg/pull/21056/commits/99582d154236b0e7af70cadef8420c4f25829f61</a></p>
-</li>
-</ul>
-<hr>
-<br>
+using namespace std;
+typedef tuple&lt;double, double, double&gt; tddd;
 
-<center>❃ 特别鸣谢CJgg两节课的耐心讲解 /doge</center>
+int main()
+{
+    int n;
+    double d, p = 0;
+    cin &gt;&gt; n &gt;&gt; d;
+    vector&lt;tddd&gt; info(n);
+    for (auto &amp;k: info)
+        cin &gt;&gt; get&lt;0&gt;(k);
+    for (auto &amp;k: info)
+    {
+        cin &gt;&gt; get&lt;1&gt;(k);
+        get&lt;2&gt;(k) = get&lt;1&gt;(k) / get&lt;0&gt;(k);
+    }
+    sort(info.begin(), info.end(), [](tddd &amp;a, tddd &amp;b) { return get&lt;2&gt;(a) &gt; get&lt;2&gt;(b); });
+    for (int i = 0; i &lt; n &amp;&amp; d &gt; 0; ++i)
+    {
+        p += (d &lt; get&lt;0&gt;(info[i]) ? d * get&lt;2&gt;(info[i]) : get&lt;1&gt;(info[i]));
+        d -= get&lt;0&gt;(info[i]);
+    }
+    printf("%.2f", p);
+}
+</code></pre>
+
     </div>
 
     
