@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://starlitrover.xyz/2022/10/05/%E3%80%8C1073%E3%80%8DScientific-Notation/</loc>
+    
+    <lastmod>2022-10-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://starlitrover.xyz/2022/09/29/%E3%80%8C1071%E3%80%8DSpeech-Patterns/</loc>
+    
+    <lastmod>2022-10-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://starlitrover.xyz/2022/10/05/%E3%80%8C1072%E3%80%8DGas-Station/</loc>
     
     <lastmod>2022-10-05</lastmod>
@@ -12,15 +30,6 @@
   
   <url>
     <loc>https://starlitrover.xyz/2022/09/29/%E3%80%8C1070%E3%80%8DMooncake/</loc>
-    
-    <lastmod>2022-09-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://starlitrover.xyz/2022/09/29/%E3%80%8C1071%E3%80%8DSpeech-Patterns/</loc>
     
     <lastmod>2022-09-29</lastmod>
     
@@ -1035,14 +1044,14 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/prime/</loc>
+    <loc>https://starlitrover.xyz/tags/queue/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/Dijkstra/</loc>
+    <loc>https://starlitrover.xyz/tags/prime/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1063,7 +1072,7 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/queue/</loc>
+    <loc>https://starlitrover.xyz/tags/Dijkstra/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1091,14 +1100,14 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/arm64/</loc>
+    <loc>https://starlitrover.xyz/tags/xv6/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/xv6/</loc>
+    <loc>https://starlitrover.xyz/tags/arm64/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1161,14 +1170,14 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/tuple/</loc>
+    <loc>https://starlitrover.xyz/tags/list/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/tags/list/</loc>
+    <loc>https://starlitrover.xyz/tags/tuple/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1240,14 +1249,14 @@
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/categories/%E8%A1%80%E6%B3%AA%E5%8F%B2/</loc>
+    <loc>https://starlitrover.xyz/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://starlitrover.xyz/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>https://starlitrover.xyz/categories/%E8%A1%80%E6%B3%AA%E5%8F%B2/</loc>
     <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/C＋＋" style=color:#006674>
+                <a href="/tags/C＋＋" style=color:#016a99>
                     C＋＋
                 </a>
             </span>
@@ -318,7 +318,7 @@ mjx-container[display="true"] + br {
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>思路简单明了，中途遇到了一个有意思的小bug，分享一下：</p>
 <pre><code class="cpp">for (int i = -1; i &lt; s.size(); ++i)
 </code></pre>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>这个循环不论<code>s.size()</code>多大都不会进入，我一开始也很疑惑，这说明<code>i&lt;s.size()</code>是false，后来想起size()的返回类型是无符号整型size_t，比较运算实质是做减法，那么编译器在做一个无符号数减一个有符号数时都会先将有符号数专为无符号数，那么这里-1就会直接变成最大的无符号数，因此返回false不会进入循环。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>这个循环不论<code>s.size()</code>多大都不会进入，我一开始也很疑惑，这说明<code>i&lt;s.size()</code>是false，后来想起size()的返回类型是无符号整型size_t，比较运算实质是做减法，那么编译器在做一个无符号数减一个有符号数时都会先将有符号数转为无符号数，那么这里-1就会直接变成最大的无符号数，因此返回false不会进入循环。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>不得不说，细节决定成败。和绝对理性的机器打交道就必须注意这些不起眼的小点。</p>
 <hr>
 <h2><span id>🐎</span></h2><pre><code class="cpp">#include &lt;iostream&gt;
