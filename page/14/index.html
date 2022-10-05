@@ -280,6 +280,66 @@ mjx-container[display="true"] + br {
             
 
 <div class="post">
+    <a href="/2022/04/04/1016-Phone-Bills/">
+        <h2>
+            「1016」Phone Bills
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/4/4
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>➳<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/problems/994805493648703488">ENTRY</a></p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>A long-distance telephone company charges its customers by the following rules:</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>Making a long-distance call costs a certain amount per minute, depending on the time of day when the call is made. When a customer starts connecting a long-distance call, the time will be recorded, and so will be the time when the customer hangs up the phone. Every calendar month, a bill is sent to the customer for each minute called (at a rate determined by the time of day). Your job is to prepare the bills for each month, given a set of phone call records.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#006674>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/set" style=color:#016a99>
+                set
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/04/04/1016-Phone-Bills/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
     <a href="/2022/04/02/控制器/">
         <h2>
             「Section 8」控制器
@@ -373,14 +433,14 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/走码观花" style=color:#006674>
+            <a href="/tags/走码观花" style=color:#6484be>
                 走码观花
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/OpenGL" style=color:#6484be>
+            <a href="/tags/OpenGL" style=color:#006674>
                 OpenGL
             </a>
         </span>
@@ -497,74 +557,13 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/notes" style=color:#006674>
+            <a href="/tags/notes" style=color:#6484be>
                 notes
             </a>
         </span>
         
     </div>
     <a href="/2022/03/23/寻址方式/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/03/22/借助flex实现SysY词法分析/">
-        <h2>
-            借助Flex实现SysY词法分析
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/编译原理">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                编译原理
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/3/22
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>词法分析（<strong>lexical analysis</strong>）是编译器的第一阶段，主要是将代码的字符序列转换为<strong>token</strong>的过程。简单地来说，就是对代码进行切块的一个过程，并将每一块添加上其所属的类别标签。比如说<code>int asd=897;</code>，其词法分析的结果即为</p>
-<ul>
-<li><p><code>int</code>    ：&lt; TYPE , ‘int’ &gt;</p>
-</li>
-<li><p><code>asd</code>    ：&lt; ID , ‘ast’ &gt;</p>
-</li>
-<li><p><code>=</code>        ：&lt; OPERATOR , ‘=’ &gt;</p>
-</li>
-<li><p><code>897</code>    ：&lt; DEC_CONST , 897 &gt;</p>
-</li>
-<li><p><code>;</code>        ：&lt; SEMICN , ‘;’ &gt;</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/走码观花" style=color:#607d8b>
-                走码观花
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/03/22/借助flex实现SysY词法分析/ " class="go-post">
         阅读全文
     </a>
 </div>
