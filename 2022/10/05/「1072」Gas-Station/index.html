@@ -297,14 +297,14 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/Dijkstra" style=color:#016a99>
+                <a href="/tags/Dijkstra" style=color:#6484be>
                     Dijkstra
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/min_element" style=color:#006674>
+                <a href="/tags/min_element" style=color:#016a99>
                     min_element
                 </a>
             </span>
@@ -361,6 +361,7 @@ G3 G2 2
 #include &lt;vector&gt;
 #include &lt;map&gt;
 #include &lt;algorithm&gt;
+#include &lt;cmath&gt;
 
 using namespace std;
 
@@ -411,7 +412,7 @@ int main()
         }
     }
     if (get&lt;0&gt;(ans))
-        printf("G%d\n%.1f %.1f", get&lt;0&gt;(ans), float(get&lt;1&gt;(ans)), get&lt;2&gt;(ans));
+        printf("G%d\n%.1f %.1f", get&lt;0&gt;(ans), float(get&lt;1&gt;(ans)), round(get&lt;2&gt;(ans) * 10) / 10);
     else
         printf("No Solution");
 }
