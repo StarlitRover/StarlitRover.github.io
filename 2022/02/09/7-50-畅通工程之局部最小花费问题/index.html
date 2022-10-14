@@ -283,29 +283,36 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/C＋＋" style=color:#607d8b>
+                <a href="/tags/C＋＋" style=color:#016a99>
                     C＋＋
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/Graph" style=color:#6484be>
+                <a href="/tags/Graph" style=color:#016a99>
                     Graph
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/pair" style=color:#6484be>
+                <a href="/tags/pair" style=color:#006674>
                     pair
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/并查集" style=color:#006674>
+                <a href="/tags/并查集" style=color:#607d8b>
                     并查集
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/numeric" style=color:#607d8b>
+                    numeric
                 </a>
             </span>
             
@@ -471,7 +478,7 @@ int main()
 </code></pre>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>这个测试用例优化版的结果是4，而简化版的结果是3。显然，简化版中枪了，我构造的思路就是着眼于简化版不动态更新各个元素的父节点，不更新也就算了，在检查的时候还不访问元素父节点的父节点，这样在一定的条件下就必然会导致选中的一条公路，其端点两个村庄的父节点不同，然而在之前的选取过程中这两个父节点已经合并了，也就是说，选取了一条处于一个连通集中的公路，花了没必要的造路成本。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>哈哈哈哈哈哈，说的简化版不是我写的一样，其实简化版是我在提交完优化版后乱删而成的。当时就想着能不能简化代码，但自己改改太累了，不妨先试着删亿点然后提交看看，如果通过了那就再思考思考为什么可以删掉，于是乎，有了这个彩蛋！<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>我已经将这个问题以邮件的形式发给PTA了，但我没留名字，或许以后能在这道题下面看到<br><em><strong><center>感谢一位不知名的同学补充数据！</center></strong></em><br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>那么怎么改正简化版呢，其实不改<code>do-while</code>部分就好了：</p>
-<pre><code class="C++">        do
+<pre><code class="cpp">        do
         {
             v1 = cost[idx].first.first, v2 = cost[idx].first.second;
             while (belong[v1] != belong[belong[v1]])
