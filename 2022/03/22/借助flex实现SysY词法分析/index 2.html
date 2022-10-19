@@ -1,0 +1,582 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlit Rover || 借助Flex实现SysY词法分析</title>
+    <meta name="author" content="Jammy Zeta">
+    <meta name="description" content="Just stroll in the starlit firmament~ ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/star.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/Pikachu.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Starlit Rover</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Starlit Rover</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>借助Flex实现SysY词法分析 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/22
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/编译原理">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                编译原理
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/走码观花" style=color:#006674>
+                    走码观花
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>词法分析（<strong>lexical analysis</strong>）是编译器的第一阶段，主要是将代码的字符序列转换为<strong>token</strong>的过程。简单地来说，就是对代码进行切块的一个过程，并将每一块添加上其所属的类别标签。比如说<code>int asd=897;</code>，其词法分析的结果即为</p>
+<ul>
+<li><p><code>int</code>    ：&lt; TYPE , ‘int’ &gt;</p>
+</li>
+<li><p><code>asd</code>    ：&lt; ID , ‘ast’ &gt;</p>
+</li>
+<li><p><code>=</code>        ：&lt; OPERATOR , ‘=’ &gt;</p>
+</li>
+<li><p><code>897</code>    ：&lt; DEC_CONST , 897 &gt;</p>
+</li>
+<li><p><code>;</code>        ：&lt; SEMICN , ‘;’ &gt;</p>
+<span id="more"></span></li>
+</ul>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>token的一般形式为&lt;type , literal&gt;，其中type为该词所属类型，literal则为其表值。词法分析的理论部分主要是自动机的构造以及转换，并不是太难，这里不做赘述。本篇文章主要讲述如何借助<strong>Flex</strong>工具来生成<strong>SysY语言</strong>（C语言的一个子集，具体语言定义<a href="/files/SysY%E8%AF%AD%E8%A8%80%E5%AE%9A%E4%B9%89.pdf">见这</a>）的词法分析。</p>
+<hr>
+<blockquote>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>Flex的前身是Lex。Lex是1975年由Mike Lesk和当时还在AT&amp;T做暑期实习的Eric Schmidt，共同完成的一款基 于Unix环境的词法分析程序生成工具。虽然Lex很出名并被广泛 使用，但它的低效和诸多问题也使其颇受诟病。后 来伯克利实验室的Vern Paxson使用C语言 重写Lex，并将这个新的程序命名为Flex(意为Fast Lexical Analyzer Generator)。无论在效率上还是在稳定性上，Flex都远远好于它的前辈Lex。我们在Linux下使用的是Flex在GNU License下的版本，称作GNU Flex。</p>
+</blockquote>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>Flex是一个帮助生成词法分析代码的工具，你只需告诉它目标语言中各个词法的正则表达式，Flex就会帮你生成一个lex.yy.c的C代码文件。那么首先你需要提交给Flex一个<code>.l</code>文件来告诉它词法规则，该文件的格式如下：</p>
+<pre><code class="flex">%option xxx
+%{
+    Declarations
+%}
+    Definitions
+%%
+    Rules
+%%
+    User Subroutines
+</code></pre>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第一行的option是来开启Flex自带的一些辅助功能。比如说Flex提供行号记录变量<code>yylineno</code>，我们可以直接通过该变量读取当前行号而且无需维护，但在默认状态下该变量不开放给用户，如需使用就要在开头加入<code>%option yylineno</code>。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第二部分<strong>%{…%}<strong>中的</strong>Declarations</strong>呢，是会直接加入生成代码的靠前部分，一般是引用头文件或者是定义初始变量。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第三部分<strong>%}…%%<strong>中的</strong>Definitions</strong>则是定义段，这里一般会为比较长的正则表达式命名以方便下一模块的描述，类似于C语言中的宏定义。正则表达式具体的语法可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/120819122">Flex 核心规范</a>。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第四部分<strong>%%…%%<strong>的</strong>Rules</strong>则是该文件的核心部分——规则段。规则段就是定义需要被识别出来的词法类型（可以用第三部分中的定义来组合），以及识别到该类型时需要进行的操作。每一次Flex都会使用尽可能长的字符串进行匹配，即选择最长字符串可以匹配到的类型。但当同一个长度的字符串匹配了多个类型时，默认选择第一个匹配到的类型，因此Rules的排列也有讲究。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第五部分<strong>User Subroutines</strong>则是用户自己的代码，会直接复制到生成代码的最后。前面词法识别规则会直接被Flex翻译为一个<code>yylex()</code>函数，该函数即为匹配词法类型的函数。那么如果用户需要做一些错误处理（比如识别到该语言中不存在的字符）以及部分类型识别到后需要单独处理时，就可以将处理代码写在这。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>另外，Flex还提供了两个全局变量 <code>yytext</code> 和 <code>yyleng</code>，分别表示刚刚匹配到类型的字符串与该字符串的长度。</p>
+<hr>
+<h2><span id="sysyl">❦ SysY.l</span></h2><pre><code class="flex">%option yylineno
+
+%{
+    #include "translator.h"
+%}
+
+TYPE                int|void
+KEYWORD             if|else|while|break|continue|return
+OPERATOR            "+"|"-"|"!"|"*"|"%"|"/"|"="
+COMPARISON          "=="|"!="|"&gt;"|"&lt;"|"&gt;="|"&lt;="
+NONZERO             [1-9]
+DIGIT               [0-9]
+LETTER              [A-Za-z]
+OCTAL_DIGIT         [0-7]
+OCTAL_CONST         0{OCTAL_DIGIT}*
+ILLEGAL_OCTAL_CONST 0[0-9a-wy-zA-WY-Z]({LETTER}|{DIGIT})*
+HEX_PREFIX          0x|0X
+HEX_DIGIT           [0-9a-fA-F]
+HEX_CONST           {HEX_PREFIX}{HEX_DIGIT}+
+ILLEGAL_HEX_CONST   {HEX_PREFIX}({LETTER}|{DIGIT})*
+NONDIGIT            {LETTER}|"_"
+ID                  {NONDIGIT}({DIGIT}|{NONDIGIT})*
+DEC_CONST           {NONZERO}{DIGIT}*  
+COMMENT1            "/*"[^*]*"*"+([^*/][^*]*"*"+)*"/"
+COMMENT2            "//".*                                                                                
+
+%%
+
+{TYPE}                  { printf("\033[1;32mTYPE\033[0m\t\t%s\n",yytext);return TYPE; }
+{OCTAL_CONST}           { printf("\033[1;32mOCTAL_CONST\033[0m\t");return OCTAL_CONST; }
+{ILLEGAL_OCTAL_CONST}   { return ILLEGAL_OCTAL_CONST; }
+{HEX_CONST}             { printf("\033[1;32mHEX_CONST\033[0m\t");return HEX_CONST; }
+{ILLEGAL_HEX_CONST}     { return ILLEGAL_HEX_CONST; }
+{DEC_CONST}             { printf("\033[1;32mDEC_CONST\033[0m\t%s\n",yytext);return DEC_CONST; }
+{KEYWORD}               { printf("\033[1;32mKEYWORD\033[0m\t\t%s\n",yytext);return KEYWORD; }
+{ID}                    { printf("\033[1;32mID\033[0m\t\t%s\n",yytext);return ID; }
+{OPERATOR}              { printf("\033[1;32mOPERATOR\033[0m\t%s\n",yytext);return OPERATOR; }
+{COMPARISON}            { printf("\033[1;32mCOMPARISON\033[0m\t%s\n",yytext);return COMPARISON; }
+"("                     { printf("\033[1;32mLPARENT\033[0m\t\t%s\n",yytext);return LPARENT; }
+")"                     { printf("\033[1;32mRPARENT\033[0m\t\t%s\n",yytext);return RPARENT; }
+"["                     { printf("\033[1;32mLBRACKET\033[0m\t%s\n",yytext);return LBRACKET; }
+"]"                     { printf("\033[1;32mRBRACKET\033[0m\t%s\n",yytext);return RBRACKET; }
+"{"                     { printf("\033[1;32mLBRACE\033[0m\t\t%s\n",yytext);return LBRACE; }
+"}"                     { printf("\033[1;32mRBRACE\033[0m\t\t%s\n",yytext);return RBRACE; }
+";"                     { printf("\033[1;32mSEMICN\033[0m\t\t%s\n",yytext);return SEMICN; }
+","                     { printf("\033[1;32mCOMMA\033[0m\t\t%s\n",yytext);return COMMA; }
+"&amp;&amp;"                    { printf("\033[1;32mAND\033[0m\t\t%s\n",yytext);return AND; }
+"||"                    { printf("\033[1;32mOR\033[0m\t\t%s\n",yytext);return OR; }
+{COMMENT1}|{COMMENT2}   { }
+[ \t\n]                 { }
+.                       { return UNEXPECTED; }
+
+%%
+
+int main()
+{
+    int token_type;
+    while (token_type = yylex())
+    {
+        if (token_type == UNEXPECTED)
+            printf("\033[1;31mError type A at Line %d: Invalid character \"%s\"\033[0m\n", yylineno, yytext);
+        else if (token_type == OCTAL_CONST)
+        {
+            int sum = 0;
+            for (int i = 1; i &lt; yyleng; ++i)
+                sum = sum * 8 + (yytext[i] - '0');
+            printf("%d\n", sum);
+        }
+        else if (token_type == HEX_CONST)
+        {
+            int sum = 0;
+            for (int i = 2; i &lt; yyleng; ++i)
+            {
+                if (yytext[i] &lt;= '9' &amp;&amp; yytext[i] &gt;= '0')
+                    sum = sum * 16 + (yytext[i] - '0');
+                else
+                {
+                    switch (yytext[i])
+                    {
+                    case 'a':
+                    case 'A':
+                        sum = sum * 16 + 10;
+                        break;
+                    case 'b':
+                    case 'B':
+                        sum = sum * 16 + 11;
+                        break;
+                    case 'c':
+                    case 'C':
+                        sum = sum * 16 + 12;
+                        break;
+                    case 'd':
+                    case 'D':
+                        sum = sum * 16 + 13;
+                        break;
+                    case 'e':
+                    case 'E':
+                        sum = sum * 16 + 14;
+                        break;
+                    case 'f':
+                    case 'F':
+                        sum = sum * 16 + 15;
+                        break;
+                    }
+                }
+            }
+            printf("%d\n", sum);
+        }
+        else if (token_type == ILLEGAL_OCTAL_CONST)
+            printf("\033[1;31mError type B at line %d: Illegal octal number \'%s\'\033[0m\n", yylineno, yytext);
+        else if (token_type == ILLEGAL_HEX_CONST)
+            printf("\033[1;31mError type B at line %d: Illegal hex number \'%s\'\033[0m\n", yylineno, yytext);
+    }
+}
+</code></pre>
+<hr>
+<h2><span id="︎-一些说明">☕︎ 一些说明</span></h2><ol>
+<li>“translator.h”头文件内对需要识别的词法类型（<strong>TYPE</strong>，<strong>OCTAL_CONST</strong>，…）进行了enum枚举，本质上就是整数</li>
+<li>第四部分中引用第三部分定义的名字时需要注意在引用名字外面加上<big>{大括号}</big>，否则会变成识别一段字符串</li>
+<li><code>printf</code>中的【\033[1;32m…\033[0m】是将中间文字上色🎨</li>
+<li>正则表达式中对于注释的识别是一个比较棘手的问题。<ul>
+<li>对于单行注释，我们知道开头是“//”，后面需要将该行剩余所有字符都匹配掉，注意到点可以匹配非换行符的任意字符（<code>.==[^\n]</code>），那么点的Kleene闭包<code>.*</code>即可匹配该行剩余所有字符了</li>
+<li>对于多行注释，我们知道开头是“/*”，中间部分只要不出现“*/”即可。那么我们可以考虑将中间部分（包括结尾“*/”中的“*”）分为多段以“**···*”（<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.564ex" xmlns="http://www.w3.org/2000/svg" width="7.543ex" height="2.26ex" role="img" focusable="false" viewbox="0 -749.5 3334 999"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo" transform="translate(0 -0.5)"><path data-c="7C" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"/></g><g data-mml-node="mo" transform="translate(500.2,0)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"/></g><g data-mml-node="mo" transform="translate(1222.4,0) translate(0 -0.5)"><path data-c="7C" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"/></g><g data-mml-node="mo" transform="translate(1778.2,0)"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"/></g><g data-mml-node="mn" transform="translate(2834,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g></g></g></svg></mjx-container>）结尾的字符串，每一段的结尾前面都不能出现“*”。那么每一小段都可以先写为<code>[^*]*"*"+</code>（⚠️“*”仅表示字符，*表示前面部分的Kleene闭包）。但是每一段连起来的时候不能出现“*/”，因此每一小段的开头都不能是“/”，这时则可以写为<code>[^/*][^*]*"*"+</code>。然而第一小段以“/”开头却是没关系的（<code>/*/</code>不是一个完整的注释），因此第一小段单独写为<code>[^*]*"*"+</code>。最终多行注释的正则表达式即为<code>"/*"[^*]*"*"+([^/*][^*]*"*"+)*"/"</code>。</li>
+</ul>
+</li>
+<li>第五部分主要实现了八进制与十六进制的转换，以及一些错误处理，包括识别非法八进制、十六进制字符和非法字符的报错</li>
+<li>八进制与十六进制的非法字符识别是另外定义了两个类型<strong>ILLEGAL_OCTAL_CONST</strong>与<strong>ILLEGAL_HEX_CONST</strong>，分别置于第四部分中<strong>OCTAL_CONST</strong>和<strong>HEX_CONST</strong>的后面。这样一来如果更长的字符串匹配到了<strong>ILLEGAL</strong>类型就会返回<strong>ILLEGAL</strong>，而正确的格式只会匹配前者。</li>
+<li><code>yylex()</code>函数每次匹配一段字符串，若匹配成功则执行该类型后面的操作，操作中如无<code>return</code>语句则继续识别，如有<code>return</code>语句则返回<code>main</code>函数</li>
+</ol>
+<hr>
+<h3><span id="testc">Test.c</span></h3><pre><code class="SysY">int main()
+{
+    int abc = 0123, bb = 0x12d23p, c = 0987, di = 0x45Fc1;
+    if (abc &gt;= bb) // hello
+        while (di == 1)
+            return 8;
+    /*This is a test
+      This is a test
+    */
+    $
+}
+</code></pre>
+<h3><span id="cast-magic">Cast Magic 🪄</span></h3><pre><code class="zsh">flex SysY.l                    
+clang lex.yy.c -ly -ll
+cat test.c|./a.out
+</code></pre>
+<h3><span id="output">Output</span></h3><img src="/images/编译原理/1.png" style="zoom:55%;">
+
+<br>
+
+<hr>
+<h2><span id="一个小坑">∂ 一个小坑</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>第四部分中我一开始将<code>{KEYWORD}</code>放在<code>{ID}</code>的后面，执行Flex的时候一直报错</p>
+<pre><code class="zsh">SysY.l:36: warning, rule cannot be matched
+</code></pre>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>很迷，当时改来改去这个warning就一直跟着<code>{KEYWORD}</code>跑，只有行号在变化。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>这条warning的意思应该是无法匹配<code>{KEYWORD}</code>这条规则。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>仔细想想，<code>{KEYWORD}</code>匹配的都是关键字，那么为什么关键字会成为关键字呢？因为在一开始的时候就被<code>{KEYWORD}</code>匹配到了，从而用户不能用关键字来定义变量名。这时候一看<code>{ID}</code>果然放在<code>{KEYWORD}</code>前面，显然<code>{KEYWORD}</code>是<code>{ID}</code>的一个子集，因此<code>{ID}</code>匹配完后<code>{KEYWORD}</code>就是光杆司令一个了。</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 Starlit Rover
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Jammy Zeta
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/js/md5.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: 'f1d02ea5b1fd5309c4b9',
+        clientSecret: 'fea96546fcd9dc7495659e8c9d6c20cd75fa7dbe',
+        repo: 'Blog-Comments',      // The repository of store comments,
+        owner: 'StarlitRover',
+        admin: ['StarlitRover'],
+        language: 'zh-CN',
+        id: md5(location.pathname),     // (Ensure uniqueness and length less than 50)
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>
