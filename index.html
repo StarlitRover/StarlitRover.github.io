@@ -280,6 +280,147 @@ mjx-container[display="true"] + br {
             
 
 <div class="post">
+    <a href="/2022/10/20/『1088」Rational-Arithmetic/">
+        <h2>
+            『1088」Rational Arithmetic
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/10/20
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>For two rational numbers, your task is to implement the basic arithmetics, that is, to calculate their sum, difference, product and quotient.</p>
+<h3><span id="input-specification">Input Specification:</span></h3><p>Each input file contains one test case, which gives in one line the two rational numbers in the format <code>a1/b1 a2/b2</code>. The numerators and the denominators are all in the range of long int. If there is a negative sign, it must appear only in front of the numerator. The denominators are guaranteed to be non-zero numbers.</p>
+<h3><span id="output-specification">Output Specification:</span></h3><p>For each test case, print in 4 lines the sum, difference, product and quotient of the two rational numbers, respectively. The format of each line is <code>number1 operator number2 = result</code>. Notice that all the rational numbers must be in their simplest form <code>k a/b</code>, where <code>k</code> is the integer part, and <code>a/b</code> is the simplest fraction part. If the number is negative, it must be included in a pair of parentheses. If the denominator in the division is zero, output <code>Inf</code> as the result. It is guaranteed that all the output integers are in the range of <strong>long int</strong>.</p>
+<h3><span id="sample-input-1">Sample Input 1:</span></h3><pre><code class="in">2/3 -4/2
+</code></pre>
+<h3><span id="sample-output-1">Sample Output 1:</span></h3><pre><code class="out">2/3 + (-2) = (-1 1/3)
+2/3 - (-2) = 2 2/3
+2/3 * (-2) = (-1 1/3)
+2/3 / (-2) = (-1/3)
+</code></pre>
+<h3><span id="sample-input-2">Sample Input 2:</span></h3><pre><code class="in">5/3 0/6
+</code></pre>
+<h3><span id="sample-output-2">Sample Output 2:</span></h3><pre><code class="out">1 2/3 + 0 = 1 2/3
+1 2/3 - 0 = 1 2/3
+1 2/3 * 0 = 0
+1 2/3 / 0 = Inf
+</code></pre>
+<hr>
+<h2><span id="ω">Ω</span></h2><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>用带分数的形式输出两个分数之和、差、积、商，具体输出规则如下：</p>
+<ol>
+<li><p>整数部分和真分数部分若为0则不输出，⚠️0必须输出【0】</p>
+</li>
+<li><p>负数需要加上（），负号要么在整数部分，要么在真分数的分子部分（整数部分为0）</p>
+</li>
+<li><p>当带分数整数和真分数部分皆不为0时，中间需要用space分隔</p>
+</li>
+<li><p>带分数必须是约分后的最简形式</p>
+</li>
+<li><p>分母为0直接输出【Inf】</p>
+</li>
+</ol>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>整体不难，一个格式化输出函数，一个简化函数即可。注意带分数中间的空格必须在两者都输出的时候才有。计算时可以用一个pair对来存取一个分数的分子和分母，然后分母始终为正。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>另外题目既然说了long int，就不要侥幸int可能和long int等长。</p>
+<hr>
+<h2><span id>🐎</span></h2><pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;numeric&gt;
+
+using namespace std;
+
+inline void output(pair&lt;long int, long int&gt; f)
+{
+    if (!f.second)
+        cout &lt;&lt; "Inf";
+    else
+    {
+        bool flag = f.first &lt; 0 &amp;&amp; (f.first *= -1), space = false;
+        cout &lt;&lt; (flag ? "(-" : "");
+        if (f.first / f.second || f.first == 0) cout &lt;&lt; f.first / f.second, space = true;
+        if (f.first % f.second) cout &lt;&lt; (space ? " " : "") &lt;&lt; f.first % f.second &lt;&lt; "/" &lt;&lt; f.second;
+        cout &lt;&lt; (flag ? ")" : "");
+    }
+}
+
+inline void simplify(pair&lt;long int, long int&gt; &amp;f)
+{
+    long int g = gcd(f.first, f.second);
+    f.first /= g, f.second /= g;
+    if (f.second &lt; 0) f.first *= -1, f.second *= -1;
+}
+
+int main()
+{
+    pair&lt;long int, long int&gt; a, b, c;
+    scanf("%ld/%ld %ld/%ld", &amp;a.first, &amp;a.second, &amp;b.first, &amp;b.second);
+    simplify(a), simplify(b);
+    long int lab = lcm(a.second, b.second), na = a.first * lab / a.second, nb = b.first * lab / b.second;
+    c.second = lab, c.first = na + nb, simplify(c);
+    output(a), cout &lt;&lt; " + ", output(b), cout &lt;&lt; " = ", output(c), cout &lt;&lt; endl;
+    c.second = lab, c.first = na - nb, simplify(c);
+    output(a), cout &lt;&lt; " - ", output(b), cout &lt;&lt; " = ", output(c), cout &lt;&lt; endl;
+    c.second = a.second * b.second, c.first = a.first * b.first, simplify(c);
+    output(a), cout &lt;&lt; " * ", output(b), cout &lt;&lt; " = ", output(c), cout &lt;&lt; endl;
+    c.second = a.second * b.first, c.first = a.first * b.second, simplify(c);
+    output(a), cout &lt;&lt; " / ", output(b), cout &lt;&lt; " = ", output(c), cout &lt;&lt; endl;
+}
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#607d8b>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/pair" style=color:#6484be>
+                pair
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/numeric" style=color:#607d8b>
+                numeric
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/20/『1088」Rational-Arithmetic/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
     <a href="/2022/10/18/『1087』All-Roads-Lead-to-Rome/">
         <h2>
             『1087』All Roads Lead to Rome
@@ -319,7 +460,7 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/C＋＋" style=color:#016a99>
+            <a href="/tags/C＋＋" style=color:#607d8b>
                 C＋＋
             </a>
         </span>
@@ -333,7 +474,7 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/Dijkstra" style=color:#006674>
+            <a href="/tags/Dijkstra" style=color:#607d8b>
                 Dijkstra
             </a>
         </span>
@@ -384,14 +525,14 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/C＋＋" style=color:#607d8b>
+            <a href="/tags/C＋＋" style=color:#6484be>
                 C＋＋
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/traversal-order" style=color:#006674>
+            <a href="/tags/traversal-order" style=color:#6484be>
                 traversal order
             </a>
         </span>
@@ -450,21 +591,21 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/C＋＋" style=color:#006674>
+            <a href="/tags/C＋＋" style=color:#016a99>
                 C＋＋
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/sort" style=color:#607d8b>
+            <a href="/tags/sort" style=color:#6484be>
                 sort
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/vector" style=color:#016a99>
+            <a href="/tags/vector" style=color:#607d8b>
                 vector
             </a>
         </span>
@@ -523,92 +664,27 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/map" style=color:#6484be>
+            <a href="/tags/map" style=color:#016a99>
                 map
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/string" style=color:#6484be>
+            <a href="/tags/string" style=color:#016a99>
                 string
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/transform" style=color:#006674>
+            <a href="/tags/transform" style=color:#607d8b>
                 transform
             </a>
         </span>
         
     </div>
     <a href="/2022/10/18/「1084」Broken-Keyboard/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/10/15/「1083」List-Grades/">
-        <h2>
-            「1083」List Grades
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/10/15
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>Given a list of N student records with name, ID and grade. You are supposed to sort the records with respect to the grade in non-increasing order, and output those student records of which the grades are in a given interval.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#006674>
-                C＋＋
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/sort" style=color:#607d8b>
-                sort
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/pair" style=color:#607d8b>
-                pair
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/10/15/「1083」List-Grades/ " class="go-post">
         阅读全文
     </a>
 </div>
