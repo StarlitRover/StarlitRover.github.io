@@ -1,0 +1,852 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlit Rover || # BLOG #</title>
+    <meta name="author" content="Jammy Zeta">
+    <meta name="description" content="Just stroll in the starlit firmament~ ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/star.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/Pikachu.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Starlit Rover</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Starlit Rover</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('/images/harry.png')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Starlit Rover</h1>
+                <h3># BLOG #</h3>
+                <h5>Just stroll in the starlit firmament~</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+    <a href="/2022/10/15/「1083」List-Grades/">
+        <h2>
+            「1083」List Grades
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/10/15
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Given a list of N student records with name, ID and grade. You are supposed to sort the records with respect to the grade in non-increasing order, and output those student records of which the grades are in a given interval.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#006674>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/sort" style=color:#016a99>
+                sort
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/pair" style=color:#607d8b>
+                pair
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/15/「1083」List-Grades/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/10/15/「1082」Read-Number-in-Chinese/">
+        <h2>
+            「1082」Read Number in Chinese
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/10/15
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Given an integer with no more than 9 digits, you are supposed to read it in the traditional Chinese way. Output <code>Fu</code> first if it is negative. For example, -123456789 is read as <code>Fu yi Yi er Qian san Bai si Shi wu Wan liu Qian qi Bai ba Shi jiu</code>. Note: zero (<code>ling</code>) must be handled correctly according to the Chinese tradition. For example, 100800 is <code>yi Shi Wan ling ba Bai</code>.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#6484be>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/string" style=color:#6484be>
+                string
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/15/「1082」Read-Number-in-Chinese/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/10/14/「1081」Rational-Sum/">
+        <h2>
+            「1081」Rational Sum
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/10/14
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Given N rational numbers in the form <code>numerator/denominator</code>, you are supposed to calculate their sum.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#016a99>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/numeric" style=color:#016a99>
+                numeric
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/14/「1081」Rational-Sum/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/10/11/「1080」Graduate-Admission/">
+        <h2>
+            「1080」Graduate Admission
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/10/11
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>It is said that in 2011, there are about 100 graduate schools ready to proceed over 40,000 applications in Zhejiang Province. It would help a lot if you could write a program to automate the admission procedure.</p>
+<p>Each applicant will have to provide two grades: the national entrance exam grade GE​, and the interview grade GI​. The final grade of an applicant is (GE​+GI​)/2. The admission rules are:</p>
+<ul>
+<li><p>The applicants are ranked according to their final grades, and will be admitted one by one from the top of the rank list.</p>
+</li>
+<li><p>If there is a tied final grade, the applicants will be ranked according to their national entrance exam grade GE​. If still tied, their ranks must be the same.</p>
+</li>
+<li><p>Each applicant may have K choices and the admission will be done according to his/her choices: if according to the rank list, it is one’s turn to be admitted; and if the quota of one’s most preferred shcool is not exceeded, then one will be admitted to this school, or one’s other choices will be considered one by one in order. If one gets rejected by all of preferred schools, then this unfortunate applicant will be rejected.</p>
+</li>
+<li><p>If there is a tied rank, and if the corresponding applicants are applying to the same school, then that school must admit all the applicants with the same rank, <strong>even if its quota will be exceeded</strong>.</p>
+</li>
+</ul>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#6484be>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/sort" style=color:#6484be>
+                sort
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/set" style=color:#6484be>
+                set
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/tuple" style=color:#6484be>
+                tuple
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/11/「1080」Graduate-Admission/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/10/11/「1079」Total-Sales-of-Supply-Chain/">
+        <h2>
+            「1079」Total Sales of Supply Chain
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/10/11
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>A supply chain is a network of retailers（零售商）, distributors（经销商）, and suppliers（供应商）– everyone involved in moving a product from supplier to customer.</p>
+<p>Starting from one root supplier, everyone on the chain buys products from one’s supplier in a price P and sell or distribute them in a price that is r% higher than P. Only the retailers will face the customers. It is assumed that each member in the supply chain has exactly one supplier except the root supplier, and there is no supply cycle.</p>
+<p>Now given a supply chain, you are supposed to tell the total sales from all the retailers.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#6484be>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/BFS" style=color:#607d8b>
+                BFS
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Tree" style=color:#016a99>
+                Tree
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/11/「1079」Total-Sales-of-Supply-Chain/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/2/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+            
+        
+        
+        
+        
+        
+
+            
+
+            
+            <a href="/">
+                <span class="page-num">1</span>
+            </a>
+            
+
+            
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            3
+        </span>
+
+        
+        <span>
+            <a href="/page/4/">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+        
+        
+        
+        
+        
+            <a href="/page/5">
+                <span class="page-num">
+                    5
+                </span>
+            </a>
+        
+            
+            
+            <span class="page-omit">...</span>
+            <a href="/page/25">
+                <span class="page-num">
+                    25
+                </span>
+            </a>
+            
+            
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/4/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/images/rover.jpg " alt="头像">
+        </div>
+        <div class="name">
+            Jammy Zeta
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                一往无前，丹枫迎秋～
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/StarlitRover">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/Starlit_Rover">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://y.music.163.com/m/user?id=480078549">
+
+                    
+                    <img width="18px" height="18px" src="/images/netease.png" alt="netease">
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://stackexchange.com/">
+                    StackExchange
+                </a>
+            </div>
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://www.3blue1brown.com">
+                    3blue1brown
+                </a>
+            </div>
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://www.wolframalpha.com/">
+                    Wolfram | Alpha
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 Starlit Rover
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Jammy Zeta
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

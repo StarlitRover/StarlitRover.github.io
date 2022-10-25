@@ -1,0 +1,1157 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlit Rover || Graph</title>
+    <meta name="author" content="Jammy Zeta">
+    <meta name="description" content="Just stroll in the starlit firmament~ ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/star.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/Pikachu.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Starlit Rover</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Starlit Rover</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<div class="categories-tags">
+    
+    <div class="all-s">
+        
+        
+        <span>
+            <a href="/tags/走码观花/" style=background:#016a99>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                走码观花
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/python/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                python
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/C＋＋/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                C＋＋
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/动态规划/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                动态规划
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/map/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                map
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/binary-search/" style=background:#607d8b>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                binary search
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/数学煎馍/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                数学煎馍
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/sort/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                sort
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/queue/" style=background:#607d8b>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                queue
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/prime/" style=background:#016a99>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                prime
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/set/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                set
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/BFS/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                BFS
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/Graph/" style=background:#24292e>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                Graph
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/Dijkstra/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                Dijkstra
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/pair/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                pair
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/vector/" style=background:#607d8b>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                vector
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/并查集/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                并查集
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/numeric/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                numeric
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/OpenGL/" style=background:#607d8b>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                OpenGL
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/ANN/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                ANN
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/arm64/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                arm64
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/xv6/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                xv6
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/Sci-Fi/" style=background:#016a99>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                Sci-Fi
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/blog/" style=background:#016a99>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                blog
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/reverse/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                reverse
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/string/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                string
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/min-element/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                min_element
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/traversal-order/" style=background:#016a99>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                traversal order
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/Tree/" style=background:#016a99>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                Tree
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/stack/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                stack
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/list/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                list
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/tuple/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                tuple
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/AVL/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                AVL
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/hash/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                hash
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/transform/" style=background:#607d8b>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                transform
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/DFS/" style=background:#006674>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                DFS
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/notes/" style=background:#016a99>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                notes
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/Gurobi/" style=background:#6484be>
+                <span class="icon">
+                    <a-icon type="tag" theme="filled" />
+                </span>
+                Gurobi
+            </a>
+        </span>
+        
+        
+    </div>
+    <div id="archives">
+        
+        <a-timeline>
+            <a-timeline-item color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2022/3/12</div>
+                    <a href="/2022/03/12/1013-Battle-Over-Cities/">
+                        <h3>「1013」Battle Over Cities</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/PAT（Advanced-Level）Practice">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                PAT（Advanced Level）Practice
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" theme="filled" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/C＋＋" style=color:#607d8b>
+                                    C＋＋
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/set" style=color:#016a99>
+                                    set
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/BFS" style=color:#607d8b>
+                                    BFS
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/Graph" style=color:#016a99>
+                                    Graph
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2022/2/9</div>
+                    <a href="/2022/02/09/7-50-畅通工程之局部最小花费问题/">
+                        <h3>7-50 畅通工程之局部最小花费问题</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/PTA-数据结构与算法题目集">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                PTA-数据结构与算法题目集
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" theme="filled" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/C＋＋" style=color:#607d8b>
+                                    C＋＋
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/Graph" style=color:#016a99>
+                                    Graph
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/pair" style=color:#006674>
+                                    pair
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/并查集" style=color:#6484be>
+                                    并查集
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/numeric" style=color:#607d8b>
+                                    numeric
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2022/9/25</div>
+                    <a href="/2022/09/25/「1067」Sort-with-Swap-0-i/">
+                        <h3>「1067」Sort with Swap(0, i)</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/PAT（Advanced-Level）Practice">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                PAT（Advanced Level）Practice
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" theme="filled" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/C＋＋" style=color:#016a99>
+                                    C＋＋
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/Graph" style=color:#006674>
+                                    Graph
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2022/10/5</div>
+                    <a href="/2022/10/05/「1072」Gas-Station/">
+                        <h3>「1072」Gas Station</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/PAT（Advanced-Level）Practice">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                PAT（Advanced Level）Practice
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" theme="filled" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/C＋＋" style=color:#6484be>
+                                    C＋＋
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/Graph" style=color:#6484be>
+                                    Graph
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/Dijkstra" style=color:#607d8b>
+                                    Dijkstra
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/min_element" style=color:#607d8b>
+                                    min_element
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2022/10/6</div>
+                    <a href="/2022/10/06/「1076」Forwards-on-Weibo/">
+                        <h3>「1076」Forwards on Weibo</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/PAT（Advanced-Level）Practice">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                PAT（Advanced Level）Practice
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" theme="filled" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/C＋＋" style=color:#006674>
+                                    C＋＋
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/BFS" style=color:#006674>
+                                    BFS
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/Graph" style=color:#607d8b>
+                                    Graph
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2022/10/22</div>
+                    <a href="/2022/10/22/「1091」Acute-Stroke/">
+                        <h3>「1091」Acute Stroke</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/PAT（Advanced-Level）Practice">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                PAT（Advanced Level）Practice
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" theme="filled" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/C＋＋" style=color:#006674>
+                                    C＋＋
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/Graph" style=color:#607d8b>
+                                    Graph
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/stack" style=color:#6484be>
+                                    stack
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/tuple" style=color:#016a99>
+                                    tuple
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/DFS" style=color:#607d8b>
+                                    DFS
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+        <a-timeline>
+            <a-timeline-item color="#a5c2f5">
+                <a-card hoverable>
+                    <div class="item-time">2022/10/18</div>
+                    <a href="/2022/10/18/『1087』All-Roads-Lead-to-Rome/">
+                        <h3>『1087』All Roads Lead to Rome</h3>
+                    </a>
+                    <div class="info">
+                        
+                        <span class="category">
+                            <a href="/categories/PAT（Advanced-Level）Practice">
+                                <span class="icon">
+                                    <a-icon type="book" theme="filled" />
+                                </span>
+                                PAT（Advanced Level）Practice
+                            </a>
+                        </span>
+                        
+
+                        
+                        <span class="tags">
+                            <span class="icon">
+                                <a-icon type="tags" theme="filled" />
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/C＋＋" style=color:#6484be>
+                                    C＋＋
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/Graph" style=color:#607d8b>
+                                    Graph
+                                </a>
+                            </span>
+                            
+                            <span class="tag">
+                                
+                                <a href="/tags/Dijkstra" style=color:#006674>
+                                    Dijkstra
+                                </a>
+                            </span>
+                            
+                        </span>
+                        
+                    </div>
+                </a-card>
+            </a-timeline-item>
+        </a-timeline>
+        
+    </div>
+    <script>
+        new Vue({
+            el: '#archives'
+        })
+    </script>
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 Starlit Rover
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Jammy Zeta
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>
