@@ -283,14 +283,14 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/走码观花" style=color:#016a99>
+                <a href="/tags/走码观花" style=color:#6484be>
                     走码观花
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/xv6" style=color:#006674>
+                <a href="/tags/xv6" style=color:#016a99>
                     xv6
                 </a>
             </span>
@@ -416,7 +416,7 @@ mjx-container[display="true"] + br {
  281   │   kfree((void*)pagetable);
  282   │ }
 </code></pre>
-<p>可见如果PTE_V是有效的，没有任何权限则说明这是一个PTE，需要继续递归，反之则说明是叶子节点，即虚拟地址真正对应的物理地址。</p>
+<p>可见如果PTE_V是有效的，没有任何权限则说明这是一个PTE，需要继续递归，反之则说明是叶子节点，即虚拟地址对应的真实物理地址。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>由于我们需要用【 ..】的个数来表示深度，因此在vmprint中设置一个<code>static int depth</code>，递归进入子函数前+1，退出时-1。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>首先在kernel/exec.c的exec函数中加入</p>
 <pre><code class="c"> 143 + │     if(p-&gt;pid==1)
