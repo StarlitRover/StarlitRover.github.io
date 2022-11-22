@@ -280,9 +280,9 @@ mjx-container[display="true"] + br {
             
 
 <div class="post">
-    <a href="/2022/08/20/「1039」Course-List-for-Student/">
+    <a href="/2022/08/23/「1044」Shopping-in-Mars/">
         <h2>
-            「1039」Course List for Student
+            「1044」Shopping in Mars
         </h2>
     </a>
     <div class="category-and-date">
@@ -299,13 +299,232 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/8/20
+            2022/8/23
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>Zhejiang University has 40000 students and provides 2500 courses. Now given the student name lists of all the courses, you are supposed to output the registered course list for each student who comes for a query.</p>
+            <p>Shopping in Mars is quite a different experience. The Mars people pay by chained diamonds. Each diamond has a value (in Mars dollars M<span>$</span>). When making the payment, the chain can be cut at any position for only once and some of the diamonds are taken off the chain one by one. Once a diamond is off the chain, it cannot be taken back. For example, if we have a chain of 8 diamonds with values M<span>$</span>3, 2, 1, 5, 4, 6, 8, 7, and we must pay M<span>$</span>15. We may have 3 options:</p>
+<ol>
+<li>Cut the chain between 4 and 6, and take off the diamonds from the position 1 to 5 (with values 3+2+1+5+4=15).</li>
+<li>Cut before 5 or after 6, and take off the diamonds from the position 4 to 6 (with values 5+4+6=15).</li>
+<li>Cut before 8, and take off the diamonds from the position 7 to 8 (with values 8+7=15).</li>
+</ol>
+<p>Now given the chain of diamond values and the amount that a customer has to pay, you are supposed to list all the paying options for the customer.</p>
+<p>If it is impossible to pay the exact amount, you must suggest solutions with minimum lost.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/动态规划" style=color:#006674>
+                动态规划
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#607d8b>
+                C＋＋
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/08/23/「1044」Shopping-in-Mars/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/22/粒子群算法/">
+        <h2>
+            粒子群算法
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/智能算法">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                智能算法
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/8/22
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>通过上一节我们得知遗传算法是一种智能的随机搜索算法，胡乱随机的过程中隐隐透着一丝章法，这是借鉴了大自然的生存法则。而今天登场的<strong>粒子群算法</strong>也源于日常生活。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>当地上掉落一坨蜂蜜时，我们希望找到它的方位，怎么办呢？于是乎我们放出100只蚂蚁，让他们在这片广袤无垠的土地上随机搜索。但并不是完全随机，当有一只蚂蚁嗅到了极高浓度的蜂蜜气息时，它会对其他蚂蚁大喊（触角：你礼貌吗）：“Come here！“，于是乎所有蚂蚁会往它的方位靠拢。然而每一只蚂蚁也是一个单独的个体，它们会有自己的搜索记忆，对于自己搜索路径上出现过最高浓度的方位也一直念念不忘，因此每一只蚂蚁还会向自己的历史最强方位靠拢。由此每个蚂蚁的运动方式都是通过运动惯性+个体认知+群体协作决定的。</p>
+<img title="" src="/images/数学煎馍/1.png" alt="" data-align="center" width="457">
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/python" style=color:#6484be>
+                python
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/数学煎馍" style=color:#6484be>
+                数学煎馍
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Gurobi" style=color:#016a99>
+                Gurobi
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/08/22/粒子群算法/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/22/「1043」Is-It-a-Binary-Search-Tree/">
+        <h2>
+            「1043」Is It a Binary Search Tree
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/8/22
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:</p>
+<ul>
+<li>The left subtree of a node contains only nodes with keys less than the node’s key.</li>
+<li>The right subtree of a node contains only nodes with keys greater than or equal to the node’s key.</li>
+<li>Both the left and right subtrees must also be binary search trees.</li>
+</ul>
+<p>If we swap the left and right subtrees of every node, then the resulting tree is called the <strong>Mirror Image</strong> of a BST.</p>
+<p>Now given a sequence of integer keys, you are supposed to tell if it is the preorder traversal sequence of a BST or the mirror image of a BST.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#016a99>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/binary-search" style=color:#607d8b>
+                binary search
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/traversal-order" style=color:#6484be>
+                traversal order
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Tree" style=color:#016a99>
+                Tree
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/08/22/「1043」Is-It-a-Binary-Search-Tree/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/21/「1042」Shuffling-Machine/">
+        <h2>
+            「1042」Shuffling Machine
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/8/21
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Shuffling is a procedure used to randomize a deck of playing cards. Because standard shuffling techniques are seen as weak, and in order to avoid “inside jobs” where employees collaborate with gamblers by performing inadequate shuffles, many casinos employ <strong>automatic shuffling machines</strong>. Your task is to simulate a shuffling machine.</p>
+<p>The machine shuffles a deck of 54 cards according to a given random order and repeats for a given number of times. It is assumed that the initial status of a card deck is in the following order:</p>
+<pre><code>S1, S2, ..., S13, 
+H1, H2, ..., H13, 
+C1, C2, ..., C13, 
+D1, D2, ..., D13, 
+J1, J2
+</code></pre>
+<p>where “S” stands for “Spade”, “H” for “Heart”, “C” for “Club”, “D” for “Diamond”, and “J” for “Joker”. A given order is a permutation of distinct integers in [1, 54]. If the number at the i-th position is j, it means to move the card from position i to position j. For example, suppose we only have 5 cards: S3, H5, C1, D13 and J2. Given a shuffling order {4, 2, 5, 3, 1}, the result will be: J2, H5, D13, S3, C1. If we are to repeat the shuffling again, the result will be: C1, H5, S3, J2, D13.</p>
             
             
         </div>
@@ -326,37 +545,30 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/map" style=color:#607d8b>
-                map
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/set" style=color:#006674>
-                set
+            <a href="/tags/vector" style=color:#6484be>
+                vector
             </a>
         </span>
         
     </div>
-    <a href="/2022/08/20/「1039」Course-List-for-Student/ " class="go-post">
+    <a href="/2022/08/21/「1042」Shuffling-Machine/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/08/20/遗传算法/">
+    <a href="/2022/08/20/「1041」Be-Unique/">
         <h2>
-            遗传算法
+            「1041」Be Unique
         </h2>
     </a>
     <div class="category-and-date">
         
         <span class="category">
-            <a href="/categories/智能算法">
+            <a href="/categories/PAT（Advanced-Level）Practice">
                 <span class="icon">
                     <a-icon type="book" theme="filled" /></span>
-                智能算法
+                PAT（Advanced Level）Practice
             </a>
         </span>
         
@@ -370,9 +582,7 @@ mjx-container[display="true"] + br {
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>“物竞天择，适者生存“，进化界的名言没想到也能用在算法里，不得不承认每个算法工程师也是天马行空的魔法师。由于经常参加数学煎馍美食烹饪大赛，因此时不时需要和启发式算法打交道，这些智能算法的思想充满着活力和开拓性，coding的时候甚至感觉自己像上帝一样为自己的世界制定着规则，不禁连连感叹。</p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>今天开启智能算法篇章，首先上场的是遗传大法。</p>
-<p><img src="/images/%E6%95%B0%E5%AD%A6%E7%85%8E%E9%A6%8D/0.jpg"></p>
+            <p>Being unique is so important to people on Mars that even their lottery is designed in a unique way. The rule of winning is simple: one bets on a number chosen from [1,104]. The first one who bets on a unique number wins. For example, if there are 7 people betting on { 5 31 5 88 67 88 17 }, then the second one who bets on 31 wins.</p>
             
             
         </div>
@@ -386,210 +596,20 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/python" style=color:#607d8b>
-                python
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/数学煎馍" style=color:#016a99>
-                数学煎馍
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/08/20/遗传算法/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/08/19/「1038」Recover-the-Smallest-Number/">
-        <h2>
-            「1038」Recover the Smallest Number
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/8/19
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>Given a collection of number segments, you are supposed to recover the smallest number from them. For example, given { 32, 321, 3214, 0229, 87 }, we can recover many numbers such like 32-321-3214-0229-87 or 0229-32-87-321-3214 with respect to different orders of combinations of these segments, and the smallest number is 0229-321-3214-32-87.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#607d8b>
+            <a href="/tags/C＋＋" style=color:#6484be>
                 C＋＋
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/binary-search" style=color:#607d8b>
-                binary search
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/sort" style=color:#6484be>
-                sort
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/vector" style=color:#6484be>
-                vector
+            <a href="/tags/string" style=color:#006674>
+                string
             </a>
         </span>
         
     </div>
-    <a href="/2022/08/19/「1038」Recover-the-Smallest-Number/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/08/05/「1037」Magic-Coupon/">
-        <h2>
-            「1037」Magic Coupon
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/8/5
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>The magic shop in Mars is offering some magic coupons. Each coupon has an integer N printed on it, meaning that when you use this coupon with a product, you may get N times the value of that product back! What is more, the shop also offers some bonus product for free. However, if you apply a coupon with a positive N to this bonus product, you will have to pay the shop N times the value of the bonus product… but hey, magically, they have some coupons with negative N’s!</p>
-<p>For example, given a set of coupons <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="11.566ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 5112 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mn" transform="translate(500,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(1000,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mn" transform="translate(1444.7,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(1944.7,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mn" transform="translate(2389.3,0)"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g><g data-mml-node="mo" transform="translate(2889.3,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mo" transform="translate(3334,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(4112,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(4612,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g></svg></mjx-container>, and a set of product values <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="13.326ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 5890 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mn" transform="translate(500,0)"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path></g><g data-mml-node="mo" transform="translate(1000,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mn" transform="translate(1444.7,0)"><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path></g><g data-mml-node="mo" transform="translate(1944.7,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mo" transform="translate(2389.3,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(3167.3,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(3667.3,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mo" transform="translate(4112,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(4890,0)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></g><g data-mml-node="mo" transform="translate(5390,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g></svg></mjx-container> (in Mars dollars M<span>$</span>) where a negative value corresponds to a bonus product. You can apply coupon 3 (with N being 4) to product 1 (with value M<span>$</span>7) to get M<span>$</span>28 back; coupon 2 to product 2 to get M<span>$</span>12 back; and coupon 4 to product 4 to get M<span>$</span>3 back. On the other hand, if you apply coupon 3 to product 4, you will have to pay M<span>$</span>12 to the shop.</p>
-<p>Each coupon and each product may be selected at most once. Your task is to get as much money back as possible.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#607d8b>
-                C＋＋
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/sort" style=color:#607d8b>
-                sort
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/vector" style=color:#006674>
-                vector
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/08/05/「1037」Magic-Coupon/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/08/05/「1036」Boys-vs-Girls/">
-        <h2>
-            「1036」Boys vs Girls
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/8/5
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>This time you are asked to tell the difference between the lowest grade of all the male students and the highest grade of all the female students.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#016a99>
-                C＋＋
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/08/05/「1036」Boys-vs-Girls/ " class="go-post">
+    <a href="/2022/08/20/「1041」Be-Unique/ " class="go-post">
         阅读全文
     </a>
 </div>
@@ -657,9 +677,9 @@ mjx-container[display="true"] + br {
             
             
             <span class="page-omit">...</span>
-            <a href="/page/30">
+            <a href="/page/31">
                 <span class="page-num">
-                    30
+                    31
                 </span>
             </a>
             
