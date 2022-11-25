@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/C＋＋" style=color:#6484be>
+                <a href="/tags/C＋＋" style=color:#607d8b>
                     C＋＋
                 </a>
             </span>
@@ -325,7 +325,7 @@ mjx-container[display="true"] + br {
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>咳咳，你说搞20个测试点也就算了，真就一个提示都不给？</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>对的，计算机是一门追求严谨的学科，严谨的，严……</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>好吧，肝就完事了。</p>
- <br>
+<br>
 
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>题目大意是，给你两个字符串数字，告诉你其中一个数是几进制，问你另一个数是几进制时可以使两数相等，如果不可能则输出<code>Impossible</code>。</p>
 <img src="/images/PAT(Advanced level) Practice/1010/2.png" style="zoom:50%;">
@@ -342,13 +342,13 @@ int main()
 {
     string a, b;
   //each has no more than 10 digits！
-  //a_d：demical a；ra：radix of a
+  //a_d：decimal a；ra：radix of a
     long long int t, ra, rb = 1, n, a_d = 0, b_d = 0;
     cin &gt;&gt; a &gt;&gt; b &gt;&gt; t &gt;&gt; ra;
   //make sure a's value is known
     if (t == 2)
         swap(a, b);
-  //calculate a's demical value
+  //calculate a's decimal value
     for (auto &amp;c: a)
     {
         n = (isdigit(c) ? c - '0' : c - 'a' + 10);
@@ -359,7 +359,7 @@ int main()
   //find the max character of b
     auto max_digit = *max_element(b.begin(), b.end());
     rb = (isdigit(max_digit) ? max_digit - '0' : max_digit - 'a' + 10);
-  
+
   //start enumeration
     while (b_d &lt; a_d)
     {
