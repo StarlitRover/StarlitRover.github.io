@@ -280,9 +280,9 @@ mjx-container[display="true"] + br {
             
 
 <div class="post">
-    <a href="/2022/11/15/「1113」Integer-Set-Partition/">
+    <a href="/2022/11/21/「1117」Eddington-Number/">
         <h2>
-            「1113」Integer Set Partition
+            「1117」Eddington Number
         </h2>
     </a>
     <div class="category-and-date">
@@ -299,13 +299,14 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/11/15
+            2022/11/21
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>Given a set of N (&gt;1) positive integers, you are supposed to partition them into two disjoint sets A1​ and A2​ of n1​ and n2​ numbers, respectively. Let S1​ and S2​ denote the sums of all the numbers in A1​ and A2​, respectively. You are supposed to make the partition so that ∣n1​−n2​∣ is minimized first, and then ∣S1​−S2​∣ is maximized.</p>
+            <p>British astronomer Eddington liked to ride a bike. It is said that in order to show off his skill, he has even defined an “Eddington number”, E – that is, the maximum integer E such that it is for E days that one rides more than E miles. Eddington’s own E was 87.</p>
+<p>Now given everyday’s distances that one rides for N days, you are supposed to find the corresponding E (≤N).</p>
             
             
         </div>
@@ -319,28 +320,28 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/C＋＋" style=color:#016a99>
-                C＋＋
+            <a href="/tags/动态规划" style=color:#6484be>
+                动态规划
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/sort" style=color:#006674>
-                sort
+            <a href="/tags/C＋＋" style=color:#6484be>
+                C＋＋
             </a>
         </span>
         
     </div>
-    <a href="/2022/11/15/「1113」Integer-Set-Partition/ " class="go-post">
+    <a href="/2022/11/21/「1117」Eddington-Number/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/11/15/「1112」Stucked-Keyboard/">
+    <a href="/2022/11/20/「1116」Come-on-Let-s-C/">
         <h2>
-            「1112」Stucked Keyboard
+            「1116」Come on! Let's C
         </h2>
     </a>
     <div class="category-and-date">
@@ -357,15 +358,92 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/11/15
+            2022/11/20
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>On a broken keyboard, some of the keys are always stucked. So when you type some sentences, the characters corresponding to those keys will appear repeatedly on screen for k times.</p>
-<p>Now given a resulting string on screen, you are supposed to list all the possible stucked keys, and the original string.</p>
-<p>Notice that there might be some characters that are typed repeatedly. The stucked key will always repeat output for a fixed k times whenever it is pressed. For example, when k=3, from the string <code>thiiis iiisss a teeeeeest</code> we know that the keys <code>i</code> and <code>e</code> might be stucked, but <code>s</code> is not even though it appears repeatedly sometimes. The original string could be <code>this isss a teest</code>.</p>
+            <p>“Let’s C” is a popular and fun programming contest hosted by the College of Computer Science and Technology, Zhejiang University. Since the idea of the contest is for fun, the award rules are funny as the following:</p>
+<ul>
+<li><ol start="0">
+<li>The Champion will receive a “Mystery Award” (such as a BIG collection of students’ research papers…).</li>
+</ol>
+</li>
+<li><ol>
+<li>Those who ranked as a prime number will receive the best award – the Minions (小黄人)!</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Everyone else will receive chocolates.</li>
+</ol>
+</li>
+</ul>
+<p>Given the final ranklist and a sequence of contestant ID’s, you are supposed to tell the corresponding awards.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#607d8b>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/prime" style=color:#006674>
+                prime
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/20/「1116」Come-on-Let-s-C/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/20/「1115」Counting-Nodes-in-a-Binary-Search-Tree/">
+        <h2>
+            「1115」Counting Nodes in a Binary Search Tree
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/11/20
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:</p>
+<ul>
+<li>The left subtree of a node contains only nodes with keys less than or equal to the node’s key.</li>
+<li>The right subtree of a node contains only nodes with keys greater than the node’s key.</li>
+<li>Both the left and right subtrees must also be binary search trees.</li>
+</ul>
+<p>Insert a sequence of numbers into an initially empty binary search tree. Then you are supposed to count the total number of nodes in the lowest 2 levels of the resulting tree.</p>
             
             
         </div>
@@ -386,221 +464,158 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/map" style=color:#6484be>
+            <a href="/tags/binary-search" style=color:#006674>
+                binary search
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Tree" style=color:#006674>
+                Tree
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/20/「1115」Counting-Nodes-in-a-Binary-Search-Tree/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/18/Lab3-page-tables/">
+        <h2>
+            Lab3: page tables
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/操作系统">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                操作系统
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/11/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>兄弟们，我XV6又回来啦，这个栏目的灰都能把人埋了，鸽子王实锤（当然不是因为懒(⁎⁍̴̛ᴗ⁍̴̛⁎)）。不过虽迟但到！主要有时候看完文档和课程后又去搞其他飞机了，回来时，发现一切回到原点。这周发现再不搞真搞不完了，Lab3是关于页表的，文档<a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2021/labs/pgtbl.html">戳这</a>。 </p>
+<img src="/images/操作系统/5.png" title="" alt="" data-align="center">
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/走码观花" style=color:#607d8b>
+                走码观花
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/xv6" style=color:#607d8b>
+                xv6
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/18/Lab3-page-tables/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/16/「1114」Family-Property/">
+        <h2>
+            「1114」Family Property
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/11/16
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>This time, you are supposed to help us collect the data for family-owned property. Given each person’s family members, and the estate（房产）info under his/her own name, we need to know the size of each family, and the average area and number of sets of their real estate.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#6484be>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/map" style=color:#607d8b>
                 map
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/string" style=color:#006674>
-                string
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/11/15/「1112」Stucked-Keyboard/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/11/14/「1111」Online-Map/">
-        <h2>
-            「1111」Online Map
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/11/14
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>Input our current position and a destination, an online map can recommend several paths. Now your job is to recommend two paths to your user: one is the shortest, and the other is the fastest. It is guaranteed that a path exists for any request.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#006674>
-                C＋＋
+            <a href="/tags/set" style=color:#006674>
+                set
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/Dijkstra" style=color:#607d8b>
-                Dijkstra
+            <a href="/tags/BFS" style=color:#6484be>
+                BFS
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/tuple" style=color:#6484be>
+            <a href="/tags/tuple" style=color:#016a99>
                 tuple
             </a>
         </span>
         
     </div>
-    <a href="/2022/11/14/「1111」Online-Map/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/11/13/「1110」Complete-Binary-Tree/">
-        <h2>
-            「1110」Complete Binary Tree
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/11/13
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>Given a tree, you are supposed to tell if it is a complete binary tree.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#016a99>
-                C＋＋
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/Tree" style=color:#607d8b>
-                Tree
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/DFS" style=color:#6484be>
-                DFS
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/11/13/「1110」Complete-Binary-Tree/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/11/13/「1109」Group-Photo/">
-        <h2>
-            「1109」Group Photo
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/11/13
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>Formation is very important when taking a group photo. Given the rules of forming K rows with N people as the following:</p>
-<ul>
-<li><p>The number of people in each row must be N/K (round down to the nearest integer), with all the extra people (if any) standing in the last row;</p>
-</li>
-<li><p>All the people in the rear row must be no shorter than anyone standing in the front rows;</p>
-</li>
-<li><p>In each row, the tallest one stands at the central position (which is defined to be the position <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="9.906ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4378.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(389,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(1267,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mn" transform="translate(1767,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(2489.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(3489.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3989.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>, where m is the total number of people in that row, and the division result must be rounded down to the nearest integer);</p>
-</li>
-<li><p>In each row, other people must enter the row in non-increasing order of their heights, alternately taking their positions first to the right and then to the left of the tallest one (For example, given five people with their heights 190, 188, 186, 175, and 170, the final formation would be 175, 188, 190, 186, and 170. Here we assume that you are facing the group so your left-hand side is the right-hand side of the one at the central position.);</p>
-</li>
-<li><p>When there are many people having the same height, they must be ordered in alphabetical (increasing) order of their names, and it is guaranteed that there is no duplication of names.</p>
-</li>
-</ul>
-<p>Now given the information of a group of people, you are supposed to write a program to output their formation.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#016a99>
-                C＋＋
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/sort" style=color:#607d8b>
-                sort
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/11/13/「1109」Group-Photo/ " class="go-post">
+    <a href="/2022/11/16/「1114」Family-Property/ " class="go-post">
         阅读全文
     </a>
 </div>
@@ -668,9 +683,9 @@ mjx-container[display="true"] + br {
             
             
             <span class="page-omit">...</span>
-            <a href="/page/36">
+            <a href="/page/37">
                 <span class="page-num">
-                    36
+                    37
                 </span>
             </a>
             
