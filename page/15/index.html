@@ -280,9 +280,9 @@ mjx-container[display="true"] + br {
             
 
 <div class="post">
-    <a href="/2022/10/18/「1084」Broken-Keyboard/">
+    <a href="/2022/10/27/「1099」Build-A-Binary-Search-Tree/">
         <h2>
-            「1084」Broken Keyboard
+            「1099」Build A Binary Search Tree
         </h2>
     </a>
     <div class="category-and-date">
@@ -299,14 +299,20 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/10/18
+            2022/10/27
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>On a broken keyboard, some of the keys are worn out. So when you type some sentences, the characters corresponding to those keys will not appear on screen.</p>
-<p>Now given a string that you are supposed to type, and the string that you actually type out, please list those keys which are for sure worn out.</p>
+            <p>A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:</p>
+<ul>
+<li>The left subtree of a node contains only nodes with keys less than the node’s key.</li>
+<li>The right subtree of a node contains only nodes with keys greater than or equal to the node’s key.</li>
+<li>Both the left and right subtrees must also be binary search trees.</li>
+</ul>
+<p>Given the structure of a binary tree and a sequence of distinct integer keys, there is only one way to fill these keys into the tree so that the resulting tree satisfies the definition of a BST. You are supposed to output the level order traversal sequence of that tree. The sample is illustrated by Figure 1 and 2.</p>
+<p><img src="https://images.ptausercontent.com/24c2521f-aaed-4ef4-bac8-3ff562d80a1b.jpg" alt="figBST.jpg"></p>
             
             
         </div>
@@ -327,35 +333,35 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/map" style=color:#607d8b>
-                map
+            <a href="/tags/binary-search" style=color:#016a99>
+                binary search
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/string" style=color:#607d8b>
-                string
+            <a href="/tags/BFS" style=color:#6484be>
+                BFS
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/transform" style=color:#016a99>
-                transform
+            <a href="/tags/Tree" style=color:#016a99>
+                Tree
             </a>
         </span>
         
     </div>
-    <a href="/2022/10/18/「1084」Broken-Keyboard/ " class="go-post">
+    <a href="/2022/10/27/「1099」Build-A-Binary-Search-Tree/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/10/15/「1083」List-Grades/">
+    <a href="/2022/10/27/「1098」Insertion-or-Heap-Sort/">
         <h2>
-            「1083」List Grades
+            「1098」Insertion or Heap Sort
         </h2>
     </a>
     <div class="category-and-date">
@@ -372,13 +378,16 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/10/15
+            2022/10/27
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>Given a list of N student records with name, ID and grade. You are supposed to sort the records with respect to the grade in non-increasing order, and output those student records of which the grades are in a given interval.</p>
+            <p>According to Wikipedia:</p>
+<p><strong>Insertion sort</strong> iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.</p>
+<p><strong>Heap sort</strong> divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element and moving that to the sorted region. it involves the use of a heap data structure rather than a linear-time search to find the maximum.</p>
+<p>Now given the initial sequence of integers, together with a sequence which is a result of several iterations of some sorting method, can you tell which sorting method we are using?</p>
             
             
         </div>
@@ -399,28 +408,28 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/sort" style=color:#607d8b>
+            <a href="/tags/sort" style=color:#016a99>
                 sort
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/pair" style=color:#607d8b>
-                pair
+            <a href="/tags/heap" style=color:#006674>
+                heap
             </a>
         </span>
         
     </div>
-    <a href="/2022/10/15/「1083」List-Grades/ " class="go-post">
+    <a href="/2022/10/27/「1098」Insertion-or-Heap-Sort/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/10/15/「1082」Read-Number-in-Chinese/">
+    <a href="/2022/10/26/「1097」Deduplication-on-a-Linked-List/">
         <h2>
-            「1082」Read Number in Chinese
+            「1097」Deduplication on a Linked List
         </h2>
     </a>
     <div class="category-and-date">
@@ -437,13 +446,13 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/10/15
+            2022/10/26
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>Given an integer with no more than 9 digits, you are supposed to read it in the traditional Chinese way. Output <code>Fu</code> first if it is negative. For example, -123456789 is read as <code>Fu yi Yi er Qian san Bai si Shi wu Wan liu Qian qi Bai ba Shi jiu</code>. Note: zero (<code>ling</code>) must be handled correctly according to the Chinese tradition. For example, 100800 is <code>yi Shi Wan ling ba Bai</code>.</p>
+            <p>Given a singly linked list L with integer keys, you are supposed to remove the nodes with duplicated absolute values of the keys. That is, for each value K, only the first node of which the value or absolute value of its key equals K will be kept. At the mean time, all the removed nodes must be kept in a separate list. For example, given L being 21→-15→-15→-7→15, you must output 21→-15→-7, and the removed list -15→15.</p>
             
             
         </div>
@@ -457,8 +466,15 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/C＋＋" style=color:#607d8b>
+            <a href="/tags/C＋＋" style=color:#6484be>
                 C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/map" style=color:#607d8b>
+                map
             </a>
         </span>
         
@@ -469,16 +485,23 @@ mjx-container[display="true"] + br {
             </a>
         </span>
         
+        <span class="tag">
+            
+            <a href="/tags/list" style=color:#607d8b>
+                list
+            </a>
+        </span>
+        
     </div>
-    <a href="/2022/10/15/「1082」Read-Number-in-Chinese/ " class="go-post">
+    <a href="/2022/10/26/「1097」Deduplication-on-a-Linked-List/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/10/14/「1081」Rational-Sum/">
+    <a href="/2022/10/25/「1096」Consecutive-Factors/">
         <h2>
-            「1081」Rational Sum
+            「1096」Consecutive Factors
         </h2>
     </a>
     <div class="category-and-date">
@@ -495,13 +518,64 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/10/14
+            2022/10/25
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>Given N rational numbers in the form <code>numerator/denominator</code>, you are supposed to calculate their sum.</p>
+            <p>Among all the factors of a positive integer N, there may exist several consecutive numbers. For example, 630 can be factored as 3×5×6×7, where 5, 6, and 7 are the three consecutive numbers. Now given any positive N, you are supposed to find the maximum number of consecutive factors, and list the smallest sequence of the consecutive factors.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#006674>
+                C＋＋
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/25/「1096」Consecutive-Factors/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/10/25/「1095」Cars-on-Campus/">
+        <h2>
+            「1095」Cars on Campus
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/10/25
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Zhejiang University has 8 campuses and a lot of gates. From each gate we can collect the in/out times and the plate numbers of the cars crossing the gate. Now with all the information available, you are supposed to tell, at any specific time point, the number of cars parking on campus, and at the end of the day find the cars that have parked for the longest time period.</p>
             
             
         </div>
@@ -522,96 +596,27 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/numeric" style=color:#6484be>
-                numeric
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/10/14/「1081」Rational-Sum/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/10/11/「1080」Graduate-Admission/">
-        <h2>
-            「1080」Graduate Admission
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/10/11
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>It is said that in 2011, there are about 100 graduate schools ready to proceed over 40,000 applications in Zhejiang Province. It would help a lot if you could write a program to automate the admission procedure.</p>
-<p>Each applicant will have to provide two grades: the national entrance exam grade GE​, and the interview grade GI​. The final grade of an applicant is (GE​+GI​)/2. The admission rules are:</p>
-<ul>
-<li><p>The applicants are ranked according to their final grades, and will be admitted one by one from the top of the rank list.</p>
-</li>
-<li><p>If there is a tied final grade, the applicants will be ranked according to their national entrance exam grade GE​. If still tied, their ranks must be the same.</p>
-</li>
-<li><p>Each applicant may have K choices and the admission will be done according to his/her choices: if according to the rank list, it is one’s turn to be admitted; and if the quota of one’s most preferred shcool is not exceeded, then one will be admitted to this school, or one’s other choices will be considered one by one in order. If one gets rejected by all of preferred schools, then this unfortunate applicant will be rejected.</p>
-</li>
-<li><p>If there is a tied rank, and if the corresponding applicants are applying to the same school, then that school must admit all the applicants with the same rank, <strong>even if its quota will be exceeded</strong>.</p>
-</li>
-</ul>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#006674>
-                C＋＋
+            <a href="/tags/map" style=color:#006674>
+                map
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/sort" style=color:#607d8b>
+            <a href="/tags/sort" style=color:#016a99>
                 sort
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/set" style=color:#006674>
+            <a href="/tags/set" style=color:#016a99>
                 set
             </a>
         </span>
         
-        <span class="tag">
-            
-            <a href="/tags/tuple" style=color:#016a99>
-                tuple
-            </a>
-        </span>
-        
     </div>
-    <a href="/2022/10/11/「1080」Graduate-Admission/ " class="go-post">
+    <a href="/2022/10/25/「1095」Cars-on-Campus/ " class="go-post">
         阅读全文
     </a>
 </div>
@@ -679,9 +684,9 @@ mjx-container[display="true"] + br {
             
             
             <span class="page-omit">...</span>
-            <a href="/page/37">
+            <a href="/page/40">
                 <span class="page-num">
-                    37
+                    40
                 </span>
             </a>
             

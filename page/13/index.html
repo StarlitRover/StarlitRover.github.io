@@ -280,9 +280,9 @@ mjx-container[display="true"] + br {
             
 
 <div class="post">
-    <a href="/2022/10/23/「1093」Count-PAT-s/">
+    <a href="/2022/11/13/「1109」Group-Photo/">
         <h2>
-            「1093」Count PAT's
+            「1109」Group Photo
         </h2>
     </a>
     <div class="category-and-date">
@@ -299,14 +299,26 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/10/23
+            2022/11/13
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>The string <code>APPAPT</code> contains two <code>PAT</code>‘s as substrings. The first one is formed by the 2nd, the 4th, and the 6th characters, and the second one is formed by the 3rd, the 4th, and the 6th characters.</p>
-<p>Now given any string, you are supposed to tell the number of <code>PAT</code>‘s contained in the string.</p>
+            <p>Formation is very important when taking a group photo. Given the rules of forming K rows with N people as the following:</p>
+<ul>
+<li><p>The number of people in each row must be N/K (round down to the nearest integer), with all the extra people (if any) standing in the last row;</p>
+</li>
+<li><p>All the people in the rear row must be no shorter than anyone standing in the front rows;</p>
+</li>
+<li><p>In each row, the tallest one stands at the central position (which is defined to be the position <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="9.906ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4378.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(389,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(1267,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mn" transform="translate(1767,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(2489.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(3489.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3989.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>, where m is the total number of people in that row, and the division result must be rounded down to the nearest integer);</p>
+</li>
+<li><p>In each row, other people must enter the row in non-increasing order of their heights, alternately taking their positions first to the right and then to the left of the tallest one (For example, given five people with their heights 190, 188, 186, 175, and 170, the final formation would be 175, 188, 190, 186, and 170. Here we assume that you are facing the group so your left-hand side is the right-hand side of the one at the central position.);</p>
+</li>
+<li><p>When there are many people having the same height, they must be ordered in alphabetical (increasing) order of their names, and it is guaranteed that there is no duplication of names.</p>
+</li>
+</ul>
+<p>Now given the information of a group of people, you are supposed to write a program to output their formation.</p>
             
             
         </div>
@@ -327,86 +339,21 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/string" style=color:#006674>
-                string
+            <a href="/tags/sort" style=color:#016a99>
+                sort
             </a>
         </span>
         
     </div>
-    <a href="/2022/10/23/「1093」Count-PAT-s/ " class="go-post">
+    <a href="/2022/11/13/「1109」Group-Photo/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/10/22/0-1多背包带约束问题（MKAR）/">
+    <a href="/2022/11/12/「1108」Finding-Average/">
         <h2>
-            0-1多背包带约束问题（MKAR）
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/智能算法">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                智能算法
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/10/22
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewBox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"></g></g></g></g></svg></mjx-container>本文其实与智能算法无关，这是最优化课程的一个小作业，之所以放在智能算法一栏，是因为这个问题的大部分解法都是智能算法。下面出场的是背包问题的一个变种——带约束的多背包问题，这个问题的精确算法复杂度极高，所以一般退而求其次寻找拥有固定近似比的近似算法，本文求解采取的则是一种基于DP动态规划的<strong>近似算法</strong>，巧妙的并不是算法本身，算法也不能保证求出最优解，精华在于近似比的证明部分，这一部分证明我参考了相关文献，分享给大家细细品味。</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/python" style=color:#6484be>
-                python
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/数学煎馍" style=color:#006674>
-                数学煎馍
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/动态规划" style=color:#006674>
-                动态规划
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/10/22/0-1多背包带约束问题（MKAR）/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/10/22/「1092」To-Buy-or-Not-to-Buy/">
-        <h2>
-            「1092」To Buy or Not to Buy
+            「1108」Finding Average
         </h2>
     </a>
     <div class="category-and-date">
@@ -423,16 +370,13 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/10/22
+            2022/11/12
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>Eva would like to make a string of beads with her favorite colors so she went to a small shop to buy some beads. There were many colorful strings of beads. However the owner of the shop would only sell the strings in whole pieces. Hence Eva must check whether a string in the shop contains all the beads she needs. She now comes to you for help: if the answer is <code>Yes</code>, please tell her the number of extra beads she has to buy; or if the answer is <code>No</code>, please tell her the number of beads missing from the string.</p>
-<p>For the sake of simplicity, let’s use the characters in the ranges [0-9], [a-z], and [A-Z] to represent the colors. For example, the 3rd string in Figure 1 is the one that Eva would like to make. Then the 1st string is okay since it contains all the necessary beads with 8 extra ones; yet the 2nd one is not since there is no black bead and one less red bead.</p>
-<p><img src="https://images.ptausercontent.com/b7e2ffa6-8819-436d-ad79-a41263abe914.jpg" alt="figbuy.jpg"></p>
-<center>Figure 1</center>
+            <p>The basic task is simple: given N real numbers, you are supposed to calculate their average. But what makes it complicated is that some of the input numbers might not be legal. A <strong>legal</strong> input is a real number in [−1000,1000] and is accurate up to no more than 2 decimal places. When you calculate the average, those illegal numbers must not be counted in.</p>
             
             
         </div>
@@ -453,21 +397,21 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/string" style=color:#006674>
+            <a href="/tags/string" style=color:#6484be>
                 string
             </a>
         </span>
         
     </div>
-    <a href="/2022/10/22/「1092」To-Buy-or-Not-to-Buy/ " class="go-post">
+    <a href="/2022/11/12/「1108」Finding-Average/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/10/22/「1091」Acute-Stroke/">
+    <a href="/2022/11/10/「1107」Social-Clusters/">
         <h2>
-            「1091」Acute Stroke
+            「1107」Social Clusters
         </h2>
     </a>
     <div class="category-and-date">
@@ -484,13 +428,13 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/10/22
+            2022/11/10
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>One important factor to identify acute stroke (急性脑卒中) is the volume of the stroke core. Given the results of image analysis in which the core regions are identified in each MRI slice, your job is to calculate the volume of the stroke core.</p>
+            <p>When register on a social network, you are always asked to specify your hobbies in order to find some potential friends with the same hobbies. A <strong>social cluster</strong> is a set of people who have some of their hobbies in common. You are supposed to find all the clusters.</p>
             
             
         </div>
@@ -504,49 +448,28 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/C＋＋" style=color:#6484be>
+            <a href="/tags/C＋＋" style=color:#607d8b>
                 C＋＋
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/Graph" style=color:#607d8b>
-                Graph
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/stack" style=color:#607d8b>
-                stack
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/tuple" style=color:#607d8b>
-                tuple
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/DFS" style=color:#6484be>
-                DFS
+            <a href="/tags/并查集" style=color:#006674>
+                并查集
             </a>
         </span>
         
     </div>
-    <a href="/2022/10/22/「1091」Acute-Stroke/ " class="go-post">
+    <a href="/2022/11/10/「1107」Social-Clusters/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/10/21/「1090」Highest-Price-in-Supply-Chain/">
+    <a href="/2022/11/10/「1106」Lowest-Price-in-Supply-Chain/">
         <h2>
-            「1090」Highest Price in Supply Chain
+            「1106」Lowest Price in Supply Chain
         </h2>
     </a>
     <div class="category-and-date">
@@ -563,15 +486,15 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/10/21
+            2022/11/10
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
             <p>A supply chain is a network of retailers（零售商）, distributors（经销商）, and suppliers（供应商）– everyone involved in moving a product from supplier to customer.</p>
-<p>Starting from one root supplier, everyone on the chain buys products from one’s supplier in a price P and sell or distribute them in a price that is r% higher than P. It is assumed that each member in the supply chain has exactly one supplier except the root supplier, and there is no supply cycle.</p>
-<p>Now given a supply chain, you are supposed to tell the highest price we can expect from some retailers.</p>
+<p>Starting from one root supplier, everyone on the chain buys products from one’s supplier in a price P and sell or distribute them in a price that is r% higher than P. Only the retailers will face the customers. It is assumed that each member in the supply chain has exactly one supplier except the root supplier, and there is no supply cycle.</p>
+<p>Now given a supply chain, you are supposed to tell the lowest price a customer can expect from some retailers.</p>
             
             
         </div>
@@ -592,20 +515,71 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/Tree" style=color:#6484be>
-                Tree
+            <a href="/tags/BFS" style=color:#6484be>
+                BFS
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/DFS" style=color:#016a99>
-                DFS
+            <a href="/tags/Tree" style=color:#016a99>
+                Tree
             </a>
         </span>
         
     </div>
-    <a href="/2022/10/21/「1090」Highest-Price-in-Supply-Chain/ " class="go-post">
+    <a href="/2022/11/10/「1106」Lowest-Price-in-Supply-Chain/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/02/「1105」Spiral-Matrix/">
+        <h2>
+            「1105」Spiral Matrix
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/11/2
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>This time your job is to fill a sequence of N positive integers into a <strong>spiral matrix</strong> in non-increasing order. A spiral matrix is filled in from the first element at the upper-left corner, then move in a clockwise spiral. The matrix has m rows and n columns, where m and n satisfy the following: m×n must be equal to N; m≥n; and m−n is the minimum of all the possible values.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#016a99>
+                C＋＋
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/02/「1105」Spiral-Matrix/ " class="go-post">
         阅读全文
     </a>
 </div>
@@ -673,9 +647,9 @@ mjx-container[display="true"] + br {
             
             
             <span class="page-omit">...</span>
-            <a href="/page/37">
+            <a href="/page/40">
                 <span class="page-num">
-                    37
+                    40
                 </span>
             </a>
             

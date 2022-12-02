@@ -280,9 +280,9 @@ mjx-container[display="true"] + br {
             
 
 <div class="post">
-    <a href="/2022/11/12/「1108」Finding-Average/">
+    <a href="/2022/11/22/「1123」Is-It-a-Complete-AVL-Tree/">
         <h2>
-            「1108」Finding Average
+            「1123」Is It a Complete AVL Tree
         </h2>
     </a>
     <div class="category-and-date">
@@ -299,13 +299,26 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/11/12
+            2022/11/22
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>The basic task is simple: given N real numbers, you are supposed to calculate their average. But what makes it complicated is that some of the input numbers might not be legal. A <strong>legal</strong> input is a real number in [−1000,1000] and is accurate up to no more than 2 decimal places. When you calculate the average, those illegal numbers must not be counted in.</p>
+            <p>An AVL tree is a self-balancing binary search tree. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property. Figures 1-4 illustrate the rotation rules.</p>
+<table>
+<thead>
+<tr>
+<th><img src="https://images.ptausercontent.com/fb337acb-93b0-4af2-9838-deff5ce98058.jpg" alt="F1.jpg"></th>
+<th><img src="https://images.ptausercontent.com/d1635de7-3e3f-4aaa-889b-ba29f35890db.jpg" alt="F2.jpg"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://images.ptausercontent.com/e868e4b9-9fea-4f70-b7a7-1f5d8a3be4ef.jpg" alt="F3.jpg"></td>
+<td><img src="https://images.ptausercontent.com/98aa1782-cea5-4792-8736-999436cf43a9.jpg" alt="F4.jpg"></td>
+</tr>
+</tbody></table>
+<p>Now given a sequence of insertions, you are supposed to output the level-order traversal sequence of the resulting AVL tree, and to tell if it is a complete binary tree.</p>
             
             
         </div>
@@ -326,125 +339,7 @@ mjx-container[display="true"] + br {
         
         <span class="tag">
             
-            <a href="/tags/string" style=color:#016a99>
-                string
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/11/12/「1108」Finding-Average/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/11/10/「1107」Social-Clusters/">
-        <h2>
-            「1107」Social Clusters
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/11/10
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>When register on a social network, you are always asked to specify your hobbies in order to find some potential friends with the same hobbies. A <strong>social cluster</strong> is a set of people who have some of their hobbies in common. You are supposed to find all the clusters.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#6484be>
-                C＋＋
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/并查集" style=color:#016a99>
-                并查集
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/11/10/「1107」Social-Clusters/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-    <a href="/2022/11/10/「1106」Lowest-Price-in-Supply-Chain/">
-        <h2>
-            「1106」Lowest Price in Supply Chain
-        </h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/PAT（Advanced-Level）Practice">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                PAT（Advanced Level）Practice
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2022/11/10
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>A supply chain is a network of retailers（零售商）, distributors（经销商）, and suppliers（供应商）– everyone involved in moving a product from supplier to customer.</p>
-<p>Starting from one root supplier, everyone on the chain buys products from one’s supplier in a price P and sell or distribute them in a price that is r% higher than P. Only the retailers will face the customers. It is assumed that each member in the supply chain has exactly one supplier except the root supplier, and there is no supply cycle.</p>
-<p>Now given a supply chain, you are supposed to tell the lowest price a customer can expect from some retailers.</p>
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C＋＋" style=color:#607d8b>
-                C＋＋
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/BFS" style=color:#607d8b>
+            <a href="/tags/BFS" style=color:#6484be>
                 BFS
             </a>
         </span>
@@ -456,16 +351,23 @@ mjx-container[display="true"] + br {
             </a>
         </span>
         
+        <span class="tag">
+            
+            <a href="/tags/AVL" style=color:#6484be>
+                AVL
+            </a>
+        </span>
+        
     </div>
-    <a href="/2022/11/10/「1106」Lowest-Price-in-Supply-Chain/ " class="go-post">
+    <a href="/2022/11/22/「1123」Is-It-a-Complete-AVL-Tree/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/11/02/「1105」Spiral-Matrix/">
+    <a href="/2022/11/22/「1122」Hamiltonian-Cycle/">
         <h2>
-            「1105」Spiral Matrix
+            「1122」Hamiltonian Cycle
         </h2>
     </a>
     <div class="category-and-date">
@@ -482,13 +384,14 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/11/2
+            2022/11/22
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>This time your job is to fill a sequence of N positive integers into a <strong>spiral matrix</strong> in non-increasing order. A spiral matrix is filled in from the first element at the upper-left corner, then move in a clockwise spiral. The matrix has m rows and n columns, where m and n satisfy the following: m×n must be equal to N; m≥n; and m−n is the minimum of all the possible values.</p>
+            <p>The “Hamilton cycle problem” is to find a simple cycle that contains every vertex in a graph. Such a cycle is called a “Hamiltonian cycle”.</p>
+<p>In this problem, you are supposed to tell if a given cycle is a Hamiltonian cycle.</p>
             
             
         </div>
@@ -507,16 +410,23 @@ mjx-container[display="true"] + br {
             </a>
         </span>
         
+        <span class="tag">
+            
+            <a href="/tags/Graph" style=color:#6484be>
+                Graph
+            </a>
+        </span>
+        
     </div>
-    <a href="/2022/11/02/「1105」Spiral-Matrix/ " class="go-post">
+    <a href="/2022/11/22/「1122」Hamiltonian-Cycle/ " class="go-post">
         阅读全文
     </a>
 </div>
 
 <div class="post">
-    <a href="/2022/11/02/「1104」Sum-of-Number-Segments/">
+    <a href="/2022/11/22/「1121」Damn-Single/">
         <h2>
-            「1104」Sum of Number Segments
+            「1121」Damn Single
         </h2>
     </a>
     <div class="category-and-date">
@@ -533,14 +443,123 @@ mjx-container[display="true"] + br {
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2022/11/2
+            2022/11/22
         </span>
     </div>
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>Given a sequence of positive numbers, a segment is defined to be a consecutive subsequence. For example, given the sequence { 0.1, 0.2, 0.3, 0.4 }, we have 10 segments: (0.1) (0.1, 0.2) (0.1, 0.2, 0.3) (0.1, 0.2, 0.3, 0.4) (0.2) (0.2, 0.3) (0.2, 0.3, 0.4) (0.3) (0.3, 0.4) and (0.4).</p>
-<p>Now given a sequence, you are supposed to find the sum of all the numbers in all the segments. For the previous example, the sum of all the 10 segments is 0.1 + 0.3 + 0.6 + 1.0 + 0.2 + 0.5 + 0.9 + 0.3 + 0.7 + 0.4 = 5.0.</p>
+            <p>“Damn Single (单身狗)” is the Chinese nickname for someone who is being single. You are supposed to find those who are alone in a big party, so they can be taken care of.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#006674>
+                C＋＋
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/22/「1121」Damn-Single/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/22/『1120』Friend-Numbers/">
+        <h2>
+            『1120』Friend Numbers
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/11/22
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Two integers are called “friend numbers” if they share the same sum of their digits, and the sum is their “friend ID”. For example, 123 and 51 are friend numbers since 1+2+3 = 5+1 = 6, and 6 is their friend ID. Given some numbers, you are supposed to count the number of different friend ID’s among them.</p>
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C＋＋" style=color:#006674>
+                C＋＋
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/set" style=color:#6484be>
+                set
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/22/『1120』Friend-Numbers/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/22/「1119」Pre-and-Post-order-Traversals/">
+        <h2>
+            「1119」Pre- and Post-order Traversals
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/PAT（Advanced-Level）Practice">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                PAT（Advanced Level）Practice
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/11/22
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Suppose that all the keys in a binary tree are distinct positive integers. A unique binary tree can be determined by a given pair of postorder and inorder traversal sequences, or preorder and inorder traversal sequences. However, if only the postorder and preorder traversal sequences are given, the corresponding tree may no longer be unique.</p>
+<p>Now given a pair of postorder and preorder traversal sequences, you are supposed to output the corresponding inorder traversal sequence of the tree. If the tree is not unique, simply output any one of them.</p>
             
             
         </div>
@@ -559,8 +578,22 @@ mjx-container[display="true"] + br {
             </a>
         </span>
         
+        <span class="tag">
+            
+            <a href="/tags/traversal-order" style=color:#6484be>
+                traversal order
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Tree" style=color:#6484be>
+                Tree
+            </a>
+        </span>
+        
     </div>
-    <a href="/2022/11/02/「1104」Sum-of-Number-Segments/ " class="go-post">
+    <a href="/2022/11/22/「1119」Pre-and-Post-order-Traversals/ " class="go-post">
         阅读全文
     </a>
 </div>
@@ -628,9 +661,9 @@ mjx-container[display="true"] + br {
             
             
             <span class="page-omit">...</span>
-            <a href="/page/37">
+            <a href="/page/40">
                 <span class="page-num">
-                    37
+                    40
                 </span>
             </a>
             
