@@ -283,14 +283,14 @@ mjx-container[display="true"] + br {
             
             <span class="tag">
                 
-                <a href="/tags/C＋＋" style=color:#6484be>
+                <a href="/tags/C＋＋" style=color:#016a99>
                     C＋＋
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/numeric" style=color:#607d8b>
+                <a href="/tags/numeric" style=color:#016a99>
                     numeric
                 </a>
             </span>
@@ -325,7 +325,35 @@ mjx-container[display="true"] + br {
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>在以前需要自己手写最小公倍数/最大公因数函数，有了numeric库函数，妈妈再也不用担心我因为码题而吃不上饭啦。在读入所有分数的时候，先对所有分数进行约分，同时计算至此为止所有分母的最小公倍数，根据最新分母计算分子总和，最后再进行一次约分即可。</p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.525ex" height="0.036ex" role="img" focusable="false" viewbox="0 0 2000 16"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mstyle"><g data-mml-node="mspace"/></g></g></g></svg></mjx-container>⚠️ 分子为0时只能输出一个0。</p>
 <hr>
-<h2><span id="c-d-e">C ☺ D E</span></h2><pre><code class="cpp">
+<h2><span id="c-d-e">C ☺ D E</span></h2><pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;numeric&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main()
+{
+    int n, g, dmt = 1, nrt = 0, time;
+    cin &gt;&gt; n;
+    vector&lt;pair&lt;int, int&gt;&gt; frac(n);
+    for (auto &amp;f: frac)
+    {
+        scanf("%d/%d", &amp;f.first, &amp;f.second);
+        g = gcd(f.first, f.second);
+        f.first /= g, f.second /= g;
+        time = lcm(dmt, f.second) / dmt;
+        nrt = time * nrt + time * dmt / f.second * f.first;
+        dmt *= time;
+    }
+    g = gcd(nrt, dmt);
+    nrt /= g, dmt /= g;
+    if (nrt / dmt == 0 &amp;&amp; nrt != 0)
+        cout &lt;&lt; nrt &lt;&lt; "/" &lt;&lt; dmt;
+    else if (nrt % dmt == 0)
+        cout &lt;&lt; nrt / dmt;
+    else
+        cout &lt;&lt; nrt / dmt &lt;&lt; " " &lt;&lt; nrt % dmt &lt;&lt; "/" &lt;&lt; dmt;
+}
 </code></pre>
 
     </div>
